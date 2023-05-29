@@ -1,0 +1,21 @@
+.letter-spacing {
+  &--0 {
+    letter-spacing: 0;
+  }
+  &--003 {
+    letter-spacing: 0.02rem; //0.32px
+  }
+  &--028 {
+    letter-spacing: 0.018rem; //0.28px
+  }
+  &--01 {
+    letter-spacing: 0.063rem;
+  }
+
+  &--02 {
+    letter-spacing: 0.02rem;
+  }
+  &--03 {
+    letter-spacing: 0.188rem;
+  }
+}

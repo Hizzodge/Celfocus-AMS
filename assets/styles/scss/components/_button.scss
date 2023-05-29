@@ -1,0 +1,29 @@
+@use "../common" as *;
+
+.button {
+  letter-spacing: 1px;
+  border-radius: $border-radius-24;
+  border: 1px solid transparent;
+  color: $color-white;
+  text-align: center;
+  padding: $spacing-10 $spacing-40;
+
+  @include isSuperMobile {
+    font-size: 12px;
+    padding: $spacing-06 $spacing-30;
+  }
+
+  &:hover {
+    opacity: 0.88;
+  }
+
+  &:focus {
+    opacity: 0.82;
+  }
+  &-primary {
+    background: $color-primary;
+  }
+  &-secondary {
+    border: 1px solid $color-white;
+  }
+}

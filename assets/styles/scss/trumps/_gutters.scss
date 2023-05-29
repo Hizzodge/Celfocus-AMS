@@ -1,0 +1,20 @@
+@use "../settings/breakpoints" as *;
+@use "../tools/gutters" as *;
+
+@include setGutters();
+
+@media all and (max-width: $breakpoint-tablet) {
+  @include setGutters("sm");
+}
+
+@media all and (min-width: $breakpoint-tablet) {
+  @include setGutters("md");
+}
+
+@media all and (min-width: $breakpoint-tablet-landscape) {
+  @include setGutters("lg");
+}
+
+@media all and (min-width: $breakpoint-desktop) {
+  @include setGutters("xl");
+}

@@ -1,0 +1,11 @@
+@use "../common" as *;
+
+.section {
+  &--min-height {
+    min-height: 100vh;
+
+    @include isMediaTabletLandscape {
+      min-height: auto;
+    }
+  }
+}

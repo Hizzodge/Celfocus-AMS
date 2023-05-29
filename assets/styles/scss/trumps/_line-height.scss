@@ -1,0 +1,40 @@
+@use "../settings/line-height" as *;
+
+.line-height {
+  &--17 {
+    line-height: $line-height-17;
+  }
+
+  &--19 {
+    line-height: $line-height-19;
+  }
+  &--22 {
+    line-height: $line-height-22;
+  }
+  &--24 {
+    line-height: $line-height-24;
+  }
+  &--26 {
+    line-height: $line-height-26;
+  }
+
+  &--27 {
+    line-height: $line-height-27;
+  }
+
+  &--44 {
+    line-height: $line-height-44;
+  }
+
+  &--45 {
+    line-height: $line-height-45;
+  }
+
+  &--49 {
+    line-height: $line-height-49;
+  }
+
+  &--73 {
+    line-height: $line-height-73;
+  }
+}

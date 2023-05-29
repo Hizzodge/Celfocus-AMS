@@ -1,0 +1,24 @@
+@use "../settings/colors" as *;
+
+.text-color {
+  $colors: (
+    ("background-green", $color-background-green),
+    ("background-orange", $color-background-orange),
+    ("white", $color-white),
+    ("light", $color-light),
+    ("medium", $color-medium),
+    ("medium_12", $color-medium_12),
+    ("primary", $color-primary),
+    ("secondary-dark", $color-secondary-dark),
+    ("secondary", $color-secondary)
+  );
+
+  @each $color in $colors {
+    $key: nth($color, 1);
+    $value: nth($color, 2);
+
+    &--#{$key} {
+      color: $value;
+    }
+  }
+}

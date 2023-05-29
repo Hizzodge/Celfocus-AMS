@@ -1,0 +1,135 @@
+@use 'sass:math' as math;
+@use '../tools/media' as *;
+@use '../tools/rtl' as *;
+@use '../settings/grid' as *;
+@use '../settings/breakpoints' as *;
+
+@mixin grid() {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 0;
+  @content;
+}
+
+@mixin setGridCol($col, $grid-columns: 12, $gutter: null) {
+  @if ($col > 0) {
+    $flex-basis: percentage(math.div($col, $grid-columns));
+    flex-basis: $flex-basis;
+    max-width: $flex-basis;
+    padding: 0 math.div($gutter, 2);
+  } @else {
+    flex: 1;
+  }
+  @content;
+}
+
+@mixin setGridOffset($col, $gutter: null) {
+  @if ($col > 0 and $col < $grid-columns) {
+    $offset-width: percentage(math.div($col, $grid-columns));
+    margin-left: #{$offset-width};
+  }
+}
+
+@mixin generateGrid {
+  @include grid();
+  @for $i from 0 through $grid-columns {
+    @if ($i > 0) {
+      > .grid__col--#{$i} {
+        @include setGridCol($col: $i, $gutter: $default-grid-gutter);
+      }
+      > .grid__offset--#{$i} {
+        @include setGridOffset($col: $i, $gutter: $default-grid-gutter);
+      }
+    } @else {
+      > .grid_col {
+        @include setGridCol($col: $i, $gutter: $default-grid-gutter);
+      }
+    }
+  }
+
+  @media screen and (max-width: $breakpoint-tablet) {
+    @for $i from 0 through $grid-columns {
+      @if ($i > 0) {
+        > .grid__col--xs-#{$i} {
+          @include setGridCol($col: $i, $gutter: $default-grid-gutter);
+        }
+        > .grid__offset--xs-#{$i} {
+          @include setGridOffset($col: $i, $gutter: $default-grid-gutter);
+        }
+      } @else {
+        > .grid__col--xs {
+          @include setGridCol($col: $i, $gutter: $default-grid-gutter);
+        }
+      }
+    }
+  }
+
+  @include isMediaTablet {
+    @for $i from 0 through $grid-columns {
+      @if ($i > 0) {
+        > .grid__col--sm-#{$i} {
+          @include setGridCol($col: $i, $gutter: $default-grid-gutter);
+        }
+        > .grid__offset--sm-#{$i} {
+          @include setGridOffset($col: $i, $gutter: $default-grid-gutter);
+        }
+      } @else {
+        > .grid__col--sm {
+          @include setGridCol($col: $i, $gutter: $default-grid-gutter);
+        }
+      }
+    }
+  }
+
+  @include isMediaTabletLandscape {
+    @for $i from 0 through $grid-columns {
+      @if ($i > 0) {
+        > .grid__col--md-#{$i} {
+          @include setGridCol($col: $i, $gutter: $default-grid-gutter);
+        }
+        > .grid__offset--md-#{$i} {
+          @include setGridOffset($col: $i, $gutter: $default-grid-gutter);
+        }
+      } @else {
+        > .grid__col--md {
+          @include setGridCol($col: $i, $gutter: $default-grid-gutter);
+        }
+      }
+    }
+  }
+
+  @include isMediaDesktop {
+    @for $i from 01 through $grid-columns {
+      @if ($i > 0) {
+        > .grid__col--lg-#{$i} {
+          @include setGridCol($col: $i, $gutter: $default-grid-gutter);
+        }
+        > .grid__offset--lg-#{$i} {
+          @include setGridOffset($col: $i, $gutter: $default-grid-gutter);
+        }
+      } @else {
+        > .grid__col--lg {
+          @include setGridCol($col: $i, $gutter: $default-grid-gutter);
+        }
+      }
+    }
+  }
+
+  @include isMediaFullHd {
+    @for $i from 01 through $grid-columns {
+      @if ($i > 0) {
+        > .grid__col--xl-#{$i} {
+          @include setGridCol($col: $i, $gutter: $default-grid-gutter);
+        }
+        > .grid__offset--xl-#{$i} {
+          @include setGridOffset($col: $i, $gutter: $default-grid-gutter);
+        }
+      } @else {
+        > .grid__col--xl {
+          @include setGridCol($col: $i, $gutter: $default-grid-gutter);
+        }
+      }
+    }
+  }
+}

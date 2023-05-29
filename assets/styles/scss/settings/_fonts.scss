@@ -1,0 +1,7 @@
+/* Fonts */
+
+@use "./font-weight" as *;
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600;700&display=swap");
+
+$font-family-openSans: "Open Sans", sans-serif;
+$font-family-montserrat: "Montserrat", sans-serif;

@@ -1,0 +1,143 @@
+@use "../common" as *;
+
+.home {
+  &-intro {
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+    text-align: center;
+  }
+
+  &-news {
+    background-color: $color-medium_12;
+
+    > div {
+      @include isMediaTablet {
+        flex-wrap: nowrap;
+      }
+
+      @include isMediaTabletLandscape {
+        flex-direction: row-reverse;
+        margin: auto;
+        padding: 0 $spacing-30;
+      }
+
+      @include isMediaDesktop {
+        padding: 0;
+      }
+    }
+
+    &__content {
+      justify-content: center;
+    }
+
+    &__image {
+      @include isMediaTabletLandscape {
+        justify-content: flex-start;
+      }
+
+      img {
+        width: 100%;
+
+        @include isMediaTabletLandscape {
+          width: fit-content;
+        }
+      }
+    }
+  }
+
+  &-content {
+    @include isMediaTabletLandscape {
+      flex-direction: row;
+      position: relative;
+      display: flex;
+    }
+  }
+
+  &-solution {
+    @include isMediaTabletLandscape {
+      position: relative;
+      z-index: 1;
+
+      &.section--min-height {
+        min-height: 95vh;
+      }
+    }
+
+    &__text {
+      @include isMediaTabletLandscape {
+        margin: 0 auto;
+      }
+    }
+
+    &__image {
+      margin-bottom: -$spacing-40;
+
+      @include isMediaTabletLandscape {
+        position: absolute;
+        bottom: -60px;
+        left: calc(50vw - 723px);
+      }
+
+      img {
+        width: calc(100% - $spacing-30);
+        height: auto;
+      }
+    }
+  }
+
+  &-content {
+    background: linear-gradient(
+      180deg,
+      $color-secondary,
+      $color-secondary-dark
+    );
+
+    @include isMediaTabletLandscape {
+      &.section--min-height {
+        min-height: 410px;
+      }
+    }
+
+    &__text {
+      @include isMediaTabletLandscape {
+        flex-direction: row;
+        margin: auto;
+      }
+    }
+
+    &__description {
+      min-height: 40vh;
+
+      @include isMediaTabletLandscape {
+        height: 400px;
+      }
+    }
+
+    &__image {
+      height: 60vh;
+      width: 100%;
+
+      @include isMediaTabletLandscape {
+        height: 520px;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+      }
+
+      img {
+        position: absolute;
+        z-index: 1;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+
+        & + .button {
+          z-index: 2;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,114 @@
+@use "../settings" as *;
+@use "../tools" as *;
+
+.text {
+  font-family: $font-family-openSans;
+  font-weight: $font-weight-regular;
+  margin: 0;
+
+  &-subtitle {
+    &--1 {
+      font-size: $font-size-22;
+      line-height: $line-height-32;
+      font-weight: $font-weight-semibold;
+
+      @include isMediaTabletLandscape {
+        font-size: $font-size-30;
+        line-height: $line-height-45;
+      }
+    }
+
+    &--2 {
+      font-size: $font-size-14;
+      line-height: $line-height-19;
+      letter-spacing: 0.188rem; //3px
+
+      @include isMediaTabletLandscape {
+        font-size: $font-size-20;
+        line-height: $line-height-27;
+        letter-spacing: 0.25rem; //4px
+      }
+    }
+
+    &--3 {
+      font-size: $font-size-16;
+      line-height: $line-height-24;
+      font-weight: $font-weight-bold;
+
+      @include isSuperMobile {
+        font-size: $font-size-14;
+        line-height: $line-height-20;
+      }
+    }
+  }
+
+  &-body {
+    &--1 {
+      font-size: $font-size-16;
+      line-height: $line-height-26;
+
+      @include isMediaTabletLandscape {
+        font-size: $font-size-20;
+        line-height: $line-height-30;
+      }
+    }
+
+    &--2 {
+      font-size: $font-size-14;
+      line-height: $line-height-24;
+
+      @include isMediaTabletLandscape {
+        font-size: $font-size-16;
+        line-height: $line-height-26;
+      }
+    }
+
+    &--brands {
+      font-size: $font-size-16;
+      line-height: $line-height-26;
+
+      @include isMediaTabletLandscape {
+        font-size: $font-size-20;
+        line-height: $line-height-27;
+      }
+
+      @include isSuperMobile {
+        font-size: $font-size-12;
+        line-height: $line-height-24;
+      }
+    }
+  }
+
+  &-size {
+    &--16 {
+      font-size: $font-size-16;
+      line-height: $line-height-26;
+    }
+
+    &--20 {
+      font-size: $font-size-20;
+      line-height: $line-height-27;
+    }
+  }
+
+  &--background {
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: -10px;
+      height: 10px;
+      width: calc(100% + $spacing-20);
+      background-color: $color-light_20;
+      z-index: -1;
+
+      @include isMediaTabletLandscape {
+        left: -15px;
+        height: 20px;
+        width: calc(100% + $spacing-30);
+      }
+    }
+  }
+}

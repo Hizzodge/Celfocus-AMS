@@ -1,0 +1,22 @@
+@use "../settings/border-radius" as *;
+
+.border-radius {
+  $radii: (
+    // ("02", $border-radius-02),
+    // ("04", $border-radius-04),
+    // ("06", $border-radius-06),
+    // ("08", $border-radius-08),
+    // ("12", $border-radius-12),
+    ("20", $border-radius-20),
+    ("24", $border-radius-24)
+  );
+
+  @each $radius in $radii {
+    $key: nth($radius, 1);
+    $value: nth($radius, 2);
+
+    &--#{$key} {
+      border-radius: $value;
+    }
+  }
+}

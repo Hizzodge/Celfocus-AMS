@@ -1,0 +1,8 @@
+@use "../common" as *;
+
+.highlight-container {
+  @include isMediaTabletLandscape {
+    display: flex;
+    flex-direction: column;
+  }
+}

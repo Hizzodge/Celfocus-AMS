@@ -1,0 +1,106 @@
+@use "../settings/spacings" as *;
+@use "../tools/rtl" as *;
+
+$gutterKeys: (("m", "margin"), ("p", "padding"));
+$separator: "-";
+$gutters: (
+  ("auto", auto),
+  ("0", 0),
+  ("04", $spacing-04),
+  ("06", $spacing-06),
+  ("08", $spacing-08),
+  ("09", $spacing-09),
+  ("10", $spacing-10),
+  ("12", $spacing-12),
+  ("16", $spacing-16),
+  ("18", $spacing-18),
+  ("20", $spacing-20),
+  ("24", $spacing-24),
+  ("26", $spacing-26),
+  ("28", $spacing-28),
+  ("30", $spacing-30),
+  ("32", $spacing-32),
+  ("34", $spacing-34),
+  ("40", $spacing-40),
+  ("48", $spacing-48),
+  ("50", $spacing-50),
+  ("52", $spacing-52),
+  ("56", $spacing-56),
+  ("58", $spacing-58),
+  ("60", $spacing-60),
+  ("64", $spacing-64),
+  ("66", $spacing-66),
+  ("70", $spacing-70),
+  ("72", $spacing-72),
+  ("80", $spacing-80),
+  ("81", $spacing-81),
+  ("88", $spacing-88),
+  ("90", $spacing-90),
+  ("96", $spacing-96),
+  ("100", $spacing-100),
+  ("120", $spacing-120),
+  ("140", $spacing-140),
+  ("200", $spacing-200)
+);
+$positions: (("top", "top"), ("bottom", "bottom"));
+$rtlPositions: (("right", "right"), ("left", "left"));
+
+@mixin setGutters($viewportSuffix: "") {
+  @if $viewportSuffix != "" {
+    $viewportSuffix: "-" + #{$viewportSuffix};
+  }
+
+  @each $size in $gutters {
+    $sizeKey: nth($size, 1);
+    $sizeValue: nth($size, 2);
+
+    @each $gutterKey in $gutterKeys {
+      $gutterKeyName: nth($gutterKey, 1);
+      $gutterKeyValue: nth($gutterKey, 2);
+
+      .#{$gutterKeyName}#{$separator}#{x}--#{$sizeKey}#{$viewportSuffix} {
+        #{$gutterKeyValue}-left: $sizeValue !important;
+        #{$gutterKeyValue}-right: $sizeValue !important;
+      }
+
+      .#{$gutterKeyName}#{$separator}#{y}--#{$sizeKey}#{$viewportSuffix} {
+        #{$gutterKeyValue}-top: $sizeValue !important;
+        #{$gutterKeyValue}-bottom: $sizeValue !important;
+      }
+
+      .#{$gutterKeyName}--#{$sizeKey}#{$viewportSuffix} {
+        #{$gutterKeyValue}: $sizeValue !important;
+      }
+
+      @each $position in $positions {
+        $posKey: nth($position, 1);
+        $posValue: nth($position, 2);
+
+        .#{$gutterKeyName}#{$separator}#{$posKey}--#{$sizeKey}#{$viewportSuffix} {
+          #{$gutterKeyValue}-#{$posValue}: $sizeValue !important;
+        }
+      }
+
+      @each $position in $rtlPositions {
+        $posKey: nth($position, 1);
+        $posValue: nth($position, 2);
+
+        .#{$gutterKeyName}#{$separator}#{$posKey}--#{$sizeKey}#{$viewportSuffix} {
+          @include isLtr() {
+            #{$gutterKeyValue}-#{$posValue}: $sizeValue !important;
+          }
+
+          @include isRtl() {
+            @if ($posValue == "left") {
+              #{$gutterKeyValue}-right: $sizeValue !important;
+            }
+
+            @if ($posValue == "right") {
+              #{$gutterKeyValue}-left: $sizeValue !important;
+            }
+          }
+        }
+      }
+    }
+  }
+}

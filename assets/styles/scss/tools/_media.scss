@@ -1,0 +1,31 @@
+@use "../settings/breakpoints" as *;
+
+@mixin isSuperMobile($direction: max-width) {
+  @media all and ($direction: $breakpoint-super-mobile) {
+    @content;
+  }
+}
+
+@mixin isMediaTablet($direction: min-width) {
+  @media all and ($direction: $breakpoint-tablet) {
+    @content;
+  }
+}
+
+@mixin isMediaTabletLandscape($direction: min-width) {
+  @media all and ($direction: $breakpoint-tablet-landscape) {
+    @content;
+  }
+}
+
+@mixin isMediaDesktop($direction: min-width) {
+  @media all and ($direction: $breakpoint-desktop) {
+    @content;
+  }
+}
+
+@mixin isMediaFullHd($direction: min-width) {
+  @media all and ($direction: $breakpoint-fullhd) {
+    @content;
+  }
+}

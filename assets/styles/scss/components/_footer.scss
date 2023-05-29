@@ -1,0 +1,92 @@
+@use "../common" as *;
+
+.footer {
+  background-color: $color-primary;
+  align-items: center;
+  padding: $spacing-30 $spacing-20;
+
+  @include isMediaTablet {
+    padding: $spacing-40 $spacing-40 $spacing-20;
+  }
+
+  ul {
+    padding: 0;
+    margin: 0;
+  }
+
+  &--info,
+  &--social-links,
+  &--copyright {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &--info {
+    flex-direction: column;
+
+    @include isMediaTabletLandscape {
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    &-brand {
+      height: 50px;
+    }
+
+    ul {
+      margin-top: $spacing-30;
+      color: $color-white;
+      display: flex;
+
+      @include isMediaTabletLandscape {
+        margin-top: 0;
+        margin-left: $spacing-60;
+      }
+    }
+
+    li {
+      margin: 0 20px;
+    }
+
+    a {
+      font-size: $font-size-12;
+      color: rgba($color-medium, 0.8);
+      text-transform: uppercase;
+    }
+  }
+
+  &--social-links {
+    margin: $spacing-60 0 $spacing-30;
+
+    @include isMediaTabletLandscape {
+      margin: 0;
+    }
+
+    ul {
+      display: flex;
+    }
+
+    li {
+      margin: 0 10px;
+      opacity: 0.8;
+    }
+  }
+
+  &--copyright {
+    font-size: $font-size-12;
+    color: rgba($color-medium, 0.8);
+
+    @include isMediaTabletLandscape {
+      justify-content: flex-end;
+    }
+
+    span {
+      &::after {
+        content: "|";
+        padding: 0 $spacing-04;
+      }
+    }
+  }
+}

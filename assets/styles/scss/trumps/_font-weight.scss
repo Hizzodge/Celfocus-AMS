@@ -1,0 +1,19 @@
+@use '../settings/font-weight' as *;
+
+.font-weight {
+  &--regular {
+    font-weight: $font-weight-regular;
+  }
+
+  &--medium {
+    font-weight: $font-weight-medium;
+  }
+
+  &--semibold {
+    font-weight: $font-weight-semibold;
+  }
+
+  &--bold {
+    font-weight: $font-weight-bold;
+  }
+}

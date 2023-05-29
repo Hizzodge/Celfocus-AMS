@@ -1,0 +1,6 @@
+@use '../settings/grid' as *;
+@use '../tools/grid' as *;
+
+.grid {
+  @include generateGrid;
+}

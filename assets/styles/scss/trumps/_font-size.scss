@@ -1,0 +1,23 @@
+@use "../settings/font-size" as *;
+
+.font-size {
+  $sizes: (
+    ("12", $font-size-12),
+    ("14", $font-size-14),
+    ("16", $font-size-16),
+    ("20", $font-size-20),
+    ("30", $font-size-30),
+    ("36", $font-size-36),
+    ("40", $font-size-40),
+    ("60", $font-size-60)
+  );
+
+  @each $size in $sizes {
+    $key: nth($size, 1);
+    $value: nth($size, 2);
+
+    &--#{$key} {
+      font-size: $value;
+    }
+  }
+}
