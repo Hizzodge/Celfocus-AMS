@@ -5,19 +5,23 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/assets/styles/css/slick.css" />
+  <link rel="stylesheet" href="/assets/styles/css/slick-theme.css" />
   <link rel="stylesheet" href="/assets/styles/css/main.css">
+
   <title>Celfocus AMS</title>
 </head>
 
 <body>
-
+  <script src="./assets/scripts/jquery.min.js"></script>
+  <script src="./assets/scripts/slick.min.js"></script>
   <header class="header">
     <section class="flex flex__justify--space-between flex__align--center">
-      <a href="#" class="header--brand">Celfocus AMS</a>
+      <a href="/index.html" class="header--brand">Celfocus AMS</a>
       <nav class="header--navbar">
         <ul class="flex">
-          <li><a href="#">Our solution</a></li>
-          <li><a href="#">Contacts</a></li>
+          <li><a href="/solution.html">Our solution</a></li>
+          <li><a href="#contacts">Contacts</a></li>
         </ul>
       </nav>
       <div class="header--right-content">
@@ -47,13 +51,13 @@
   <section class="solution-intro section--min-height p-bottom--140-lg p-top--50 p-bottom--10">
     <div class="flex flex--column flex__justify--space-between">
       <h2 class="text-color--light  text-align--center heading heading--h3 p-x--30  m-bottom--140-lg">
-        <span class="text-color--primary">Overview </span>
+        <span class="text-color--primary text--background">Overview </span>
         | Investments funds | Family offices | Pension funds | Wealth managers | Insurance | Private equity | Banks |
         Real
         estate
       </h2>
       <div class="solution-intro__flex-container p-left--30 p-left--0-xl grid flex flex--column-reverse">
-        <div class="grid__col--md-5">
+        <div class="grid__col--md-6">
           <h2 class="heading heading--h2 text-align--left p-top--40">
             Revolutionize Your Asset Management with an All-in-One SaaS Solution.
           </h2>
@@ -64,7 +68,7 @@
             valuation, accounting & reporting with automated data aggregation.
           </p>
         </div>
-        <div class="solution-intro--image grid__col--md-7 m-top--40">
+        <div class="solution-intro--image grid__col--md-6 m-top--40">
           <img class="image" src="./assets/images/img-footer-pc2.png" alt="">
         </div>
       </div>
@@ -183,14 +187,26 @@
 
   </section>
   <section class="solution-opinions">
-    <div class="p-x--30 p-x--90-lg text-align--center p-top--100 p-bottom--100">
-      <h2 class="p-bottom--20 text-subtitle--1 letter-spacing--0">
-        “… between tax and regulatory changes, there are also updates to be done. AMS has always implemented all the
-        needed changes, answering successfully to our needs.”
-      </h2>
-      <p class="text text-body--2 letter-spacing--028 p-x--20">
-        João Fialho, Operations Division Manager at <strong>IMGA</strong>
-      </p>
+    <div class="p-x--30 p-x--90-lg text-align--center p-top--100 p-bottom--100 slider-test">
+      <div>
+        <h2 class="p-bottom--20 text-subtitle--1 letter-spacing--0">
+          “… between tax and regulatory changes, there are also updates to be done. AMS has always implemented all the
+          needed changes, answering successfully to our needs.”
+        </h2>
+        <p class="text text-body--2 letter-spacing--028 p-x--20">
+          João Fialho, Operations Division Manager at <strong>IMGA</strong>
+        </p>
+      </div>
+      <div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque quia, unde illum sed expedita accusantium
+        aliquam nihil. Inventore quia, magnam sunt deserunt maxime obcaecati delectus tempora itaque ipsam numquam
+        quaerat.
+      </div>
+      <div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque quia, unde illum sed expedita accusantium
+        aliquam nihil. Inventore quia, magnam sunt deserunt maxime obcaecati delectus tempora itaque ipsam numquam
+        quaerat.
+      </div>
     </div>
   </section>
   <section class="solution-brands p-x--30 p-x--0-xl p-y--90 p-y--140-lg">
@@ -314,7 +330,7 @@
     </div>
 
   </section>
-  <footer class="footer grid">
+  <footer id="contacts" class="footer grid">
     <div class="footer--info grid__col--12 grid__col--md-5">
       <a href="#" class="footer--info-brand">
         <img src="./assets/images/celfocus-NB-logo.png" class="" alt="celfocus logo" />
@@ -338,4 +354,15 @@
       </p>
     </div>
   </footer>
+
+  <script type="text/javascript">
+    $('.slider-test').slick({
+      infinite: true,
+      autoplay: true,
+      arrows: false,
+      dots: true,
+      slidesToShow: 1,
+      slidesToScroll: 1
+    });
+  </script>
 </body>

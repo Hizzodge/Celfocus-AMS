@@ -12,11 +12,11 @@
 <body>
   <header class="header">
     <section class="flex flex__justify--space-between flex__align--center">
-      <a href="#" class="header--brand">Celfocus AMS</a>
+      <a href="/index.html" class="header--brand">Celfocus AMS</a>
       <nav class="header--navbar">
         <ul class="flex">
-          <li><a href="#">Our solution</a></li>
-          <li><a href="#">Contacts</a></li>
+          <li><a href="/solution.html">Our solution</a></li>
+          <li><a href="#contacts">Contacts</a></li>
         </ul>
       </nav>
       <div class="header--right-content">
@@ -78,7 +78,8 @@
         profitability.
       </p>
       <div class="m-y--50 flex flex__justify--center">
-        <button class="button button-primary text text-body--2 flex__align--center" type="button">
+        <button class="button button-primary text text-body--2 flex__align--center" type="button"
+          onclick="alert('hello')">
           OUR SOLUTION
         </button>
       </div>
@@ -103,7 +104,8 @@
       <div
         class="home-content__image grid__col--md-5 position__relative flex flex__align--center flex__justify--center">
         <img src="./assets/svg/footer-filter.svg" alt="" class="" />
-        <button class="button button-secondary text text-body--2 flex__align--center" type="button">
+        <button class="button button-secondary text text-body--2 flex__align--center" type="button"
+          onclick="alert('hello')">
           DOWNLOAD OUR WHITE PAPER
         </button>
       </div>
@@ -111,7 +113,7 @@
 
   </section>
 
-  <footer class="footer grid">
+  <footer id="contacts" class="footer grid">
     <div class="footer--info grid__col--12 grid__col--md-5">
       <a href="#" class="footer--info-brand">
         <img src="./assets/images/celfocus-NB-logo.png" class="" alt="celfocus logo" />
