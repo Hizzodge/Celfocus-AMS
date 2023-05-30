@@ -44,6 +44,7 @@
 
   &-back-office {
     background-color: $color-light_20;
+    // background-image: url("/assets/svg/background-dot.svg");
 
     &__container {
       @include isMediaTabletLandscape {

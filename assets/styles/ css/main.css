@@ -12988,6 +12988,8 @@ body[dir=rtl] .p-left--200 {
 .header--navbar li a {
   font-size: 0.875rem;
   padding-top: 0.5rem;
+  line-height: 1.625rem;
+  letter-spacing: 0.84px;
   text-transform: uppercase;
   border-bottom: 1px solid transparent;
 }
@@ -13004,6 +13006,10 @@ body[dir=rtl] .p-left--200 {
 }
 .header--right-content button:hover {
   background-color: rgba(200, 201, 203, 0.2);
+}
+
+.add-shadow {
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1607843137);
 }
 
 .home-intro {

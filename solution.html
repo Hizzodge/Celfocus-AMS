@@ -16,11 +16,11 @@
   <script src="./assets/scripts/jquery.min.js"></script>
   <script src="./assets/scripts/slick.min.js"></script>
   <header class="header">
-    <section class="flex flex__justify--space-between flex__align--center">
+    <section class="flex flex__justify--space-between flex__align--center add-shadow">
       <a href="/index.html" class="header--brand">Celfocus AMS</a>
       <nav class="header--navbar">
         <ul class="flex">
-          <li><a href="/solution.html">Our solution</a></li>
+          <li><a href="/solution.html" class="m-right--16">Our solution</a></li>
           <li><a href="#contacts">Contacts</a></li>
         </ul>
       </nav>
@@ -106,6 +106,7 @@
       </div>
   </section>
   <section class="solution-back-office p-x--30 p-top--120-lg p-bottom--120-lg p-x--0-xl ">
+    <img src="./assets/svg/background-dot.svg" alt="">
     <div class="solution-back-office__container flex flex--column flex__justify--space-evenly p-y--60 ">
       <div class="solution-back-office__container-image p-left--30-lg">
         <img class="" src="./assets/svg/graphic.svg" alt="">
@@ -189,7 +190,7 @@
   <section class="solution-opinions">
     <div class="p-x--30 p-x--90-lg text-align--center p-top--100 p-bottom--100 slider-test">
       <div>
-        <h2 class="p-bottom--20 text-subtitle--1 letter-spacing--0">
+        <h2 class="m-bottom--20 text-subtitle--1 letter-spacing--0">
           “… between tax and regulatory changes, there are also updates to be done. AMS has always implemented all the
           needed changes, answering successfully to our needs.”
         </h2>
@@ -198,14 +199,22 @@
         </p>
       </div>
       <div>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque quia, unde illum sed expedita accusantium
-        aliquam nihil. Inventore quia, magnam sunt deserunt maxime obcaecati delectus tempora itaque ipsam numquam
-        quaerat.
+        <h2 class="m-bottom--20 text-subtitle--1 letter-spacing--0">
+          “So far as a valuation software has been an extremely positive one. The advantage is that we have more time to
+          focus on portfolio management decisions”
+        </h2>
+        <p class="text text-body--2 letter-spacing--028 p-x--20">
+          Chris Hammond, Deputy Managing Director at <strong>Petra Trust’s</strong>
+        </p>
       </div>
       <div>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque quia, unde illum sed expedita accusantium
-        aliquam nihil. Inventore quia, magnam sunt deserunt maxime obcaecati delectus tempora itaque ipsam numquam
-        quaerat.
+        <h2 class="m-bottom--20 text-subtitle--1 letter-spacing--0">
+          “The team has been really helpful, guiding us through questions that naturally arise when putting hands on the
+          job and providing quick and easy explanations.”
+        </h2>
+        <p class="text text-body--2 letter-spacing--028 p-x--20">
+          Virgínia de Figueiredo, Operations/Back Office Supervisor at <strong>Hemera Capital Partners</strong>
+        </p>
       </div>
     </div>
   </section>
@@ -363,6 +372,16 @@
       dots: true,
       slidesToShow: 1,
       slidesToScroll: 1
+    });
+  </script>
+  <script type="text/javascript">
+    window.addEventListener('scroll', (e) => {
+      const nav = document.querySelector('.header');
+      if (window.pageYOffset > 0) {
+        nav.classList.add("add-shadow");
+      } else {
+        nav.classList.remove("add-shadow");
+      }
     });
   </script>
 </body>

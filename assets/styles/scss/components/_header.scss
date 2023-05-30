@@ -28,6 +28,8 @@
       a {
         font-size: $font-size-14;
         padding-top: $spacing-08;
+        line-height: $line-height-26;
+        letter-spacing: 0.84px;
         text-transform: uppercase;
         border-bottom: 1px solid transparent;
 
@@ -51,4 +53,7 @@
       }
     }
   }
+}
+.add-shadow {
+  box-shadow: 0px 3px 6px #00000029;
 }
