@@ -137,6 +137,16 @@
       </p>
     </div>
   </footer>
+  <script type="text/javascript">
+    window.addEventListener('scroll', (e) => {
+      const nav = document.querySelector('.header');
+      if (window.pageYOffset > 0) {
+        nav.classList.add("box-shadow--bottom");
+      } else {
+        nav.classList.remove("box-shadow--bottom");
+      }
+    });
+  </script>
 </body>
 
 </html>
