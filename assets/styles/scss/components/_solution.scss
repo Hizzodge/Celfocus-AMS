@@ -44,8 +44,31 @@
 
   &-back-office {
     background-color: $color-light_20;
-    // background-image: url("/assets/svg/background-dot.svg");
 
+    &__background {
+      position: absolute;
+      bottom: 52%;
+      left: 0;
+      width: 50%;
+      height: 50%;
+
+      @include isMediaTabletLandscape {
+        bottom: 0;
+        left: 0;
+        width: 33%;
+        height: 146%;
+      }
+
+      img {
+        @include isMediaTabletLandscape {
+          width: 100%;
+          height: 100%;
+        }
+        object-fit: cover;
+        width: 200px;
+        height: 400px;
+      }
+    }
     &__container {
       @include isMediaTabletLandscape {
         flex-direction: row;

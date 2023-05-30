@@ -16,7 +16,7 @@
   <script src="./assets/scripts/jquery.min.js"></script>
   <script src="./assets/scripts/slick.min.js"></script>
   <header class="header">
-    <section class="flex flex__justify--space-between flex__align--center add-shadow">
+    <section class="flex flex__justify--space-between flex__align--center">
       <a href="/index.html" class="header--brand">Celfocus AMS</a>
       <nav class="header--navbar">
         <ul class="flex">
@@ -29,32 +29,15 @@
       </div>
     </section>
   </header>
-
-  <!-- <header class="header">
-    <nav class="navbar flex p-x--30 p-x--40-lg flex__align--center">
-      <a href="#" class="navbar-celfocus">Celfocus AMS</a>
-      <div id="nav-links" class="navbar-links flex flex__justify--space-between flex__align--center">
-        <div class="navbar-links__contacts m-left--60-lg">
-          <a href="#" class="m-right--30-lg">OUR SOLUTION</a>
-          <a href="#">CONTACTS</a>
-        </div>
-        <div class="nav-language flex">
-          <div>
-            <img src="" alt="">
-            <span>English</span>
-          </div>
-          <button type="button" onclick="alert('hello')">LOGIN</button>
-        </div>
-      </div>
-    </nav>
-  </header> -->
   <section class="solution-intro section--min-height p-bottom--140-lg p-top--50 p-bottom--10">
     <div class="flex flex--column flex__justify--space-between">
       <h2 class="text-color--light  text-align--center heading heading--h3 p-x--30  m-bottom--140-lg">
-        <span class="text-color--primary text--background">Overview </span>
-        | Investments funds | Family offices | Pension funds | Wealth managers | Insurance | Private equity | Banks |
-        Real
-        estate
+        <span class="text-color--primary text--background m-right--14-lg">Overview </span>
+        | <span class="m-x--12-lg">Investments funds</span> | <span class="m-x--12-lg">Family offices</span> |
+        <span class="m-x--12-lg">Pension funds</span> |
+        <span class="m-x--12-lg">Wealth
+          managers</span> | <span class="m-x--12-lg">Insurance</span> | <span class="m-x--12-lg">Private equity</span>
+        | <span class="m-x--12-lg">Banks</span> | <span class="m-x--12-lg">Real estate</span>
       </h2>
       <div class="solution-intro__flex-container p-left--30 p-left--0-xl grid flex flex--column-reverse">
         <div class="grid__col--md-6">
@@ -105,9 +88,11 @@
         </div>
       </div>
   </section>
-  <section class="solution-back-office p-x--30 p-top--120-lg p-bottom--120-lg p-x--0-xl ">
-    <img src="./assets/svg/background-dot.svg" alt="">
-    <div class="solution-back-office__container flex flex--column flex__justify--space-evenly p-y--60 ">
+  <section class="solution-back-office p-x--30 p-y--60 p-y--120-lg p-x--0-xl position__relative">
+    <div class="solution-back-office__background">
+      <img src="./assets/svg/background-dot.svg" alt="">
+    </div>
+    <div class="solution-back-office__container flex flex--column flex__justify--space-evenly ">
       <div class="solution-back-office__container-image p-left--30-lg">
         <img class="" src="./assets/svg/graphic.svg" alt="">
       </div>
@@ -373,14 +358,13 @@
       slidesToShow: 1,
       slidesToScroll: 1
     });
-  </script>
-  <script type="text/javascript">
+
     window.addEventListener('scroll', (e) => {
       const nav = document.querySelector('.header');
       if (window.pageYOffset > 0) {
-        nav.classList.add("add-shadow");
+        nav.classList.add("box-shadow--bottom");
       } else {
-        nav.classList.remove("add-shadow");
+        nav.classList.remove("box-shadow--bottom");
       }
     });
   </script>
