@@ -47,29 +47,39 @@
 
     &__background {
       position: absolute;
-      bottom: 52%;
+      bottom: 45vh;
       left: 0;
-      width: 50%;
-      height: 50%;
+      width: 50vw;
+      height: 600px;
+
+      @include isSuperMobile {
+        bottom: 95vh;
+        height: 80vh;
+      }
+
+      @include isMediaTablet {
+        bottom: 30vh;
+        height: 105vh;
+      }
 
       @include isMediaTabletLandscape {
         bottom: 0;
         left: 0;
         width: 33%;
-        height: 146%;
+        height: 104vh;
       }
 
       img {
-        @include isMediaTabletLandscape {
-          width: 100%;
-          height: 100%;
-        }
         object-fit: cover;
-        width: 200px;
-        height: 400px;
+        width: 100%;
+        height: 100%;
       }
     }
+
     &__container {
+      position: relative;
+      z-index: 1;
+
       @include isMediaTabletLandscape {
         flex-direction: row;
       }

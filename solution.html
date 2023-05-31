@@ -8,27 +8,58 @@
   <link rel="stylesheet" href="/assets/styles/css/slick.css" />
   <link rel="stylesheet" href="/assets/styles/css/slick-theme.css" />
   <link rel="stylesheet" href="/assets/styles/css/main.css">
-
+  <script src="./assets/scripts/jquery.min.js"></script>
+  <script src="./assets/scripts/slick.min.js"></script>
   <title>Celfocus AMS</title>
+  <link
+  rel="icon"
+  type="image/putting"
+  href="/assets/images/favicon-196.png"/>
 </head>
 
 <body>
-  <script src="./assets/scripts/jquery.min.js"></script>
-  <script src="./assets/scripts/slick.min.js"></script>
   <header class="header">
     <section class="flex flex__justify--space-between flex__align--center">
       <a href="/index.html" class="header--brand">Celfocus AMS</a>
+      <button type="button" class="header--menu" onclick="openMenu()">
+        <img src="assets/svg/menu-button.svg" alt="menu button icon" class="header--menu-open" />
+        <img src="assets/svg/close-button.svg" alt="close menu button icon" class="header--menu-close" />
+      </button>
       <nav class="header--navbar">
         <ul class="flex">
-          <li><a href="/solution.html" class="m-right--16">Our solution</a></li>
+          <li><a href="/solution.html" class="active">Our solution</a></li>
           <li><a href="#contacts">Contacts</a></li>
         </ul>
       </nav>
       <div class="header--right-content">
-        <button type="button" onclick="alert('hello')">Login</button>
+        <div class="header--button-language-content m-right--0 m-right--20-lg">
+          <button type="button" class="button-tertiary button--language" onclick="languageDropdown()">
+            <img src="assets/svg/translate-button.svg" alt="translation button icon" class="p-right--10" />
+            <span class="text-color--primary">
+              <span class="hide--lg p-right--08">Change</span>Language
+            </span>
+          </button>
+          <ul class="header--dropdown">
+            <li>
+              <input type="radio" id="en" name="fav_language" value="en" />
+              <label for="en">English</label>
+            </li>
+            <li>
+              <input type="radio" id="pt" name="fav_language" value="pt" />
+              <label for="pt">Português</label>
+            </li>
+            <li>
+              <input type="radio" id="es" name="fav_language" value="es" />
+              <label for="es">Español</label>
+            </li>
+          </ul>
+        </div>
+
+        <button type="button" class="button--login" onclick="alert('hello')">Login</button>
       </div>
     </section>
   </header>
+
   <section class="solution-intro section--min-height p-bottom--140-lg p-top--50 p-bottom--10">
     <div class="flex flex--column flex__justify--space-between">
       <h2 class="text-color--light  text-align--center heading heading--h3 p-x--30  m-bottom--140-lg">
@@ -40,7 +71,7 @@
         | <span class="m-x--12-lg">Banks</span> | <span class="m-x--12-lg">Real estate</span>
       </h2>
       <div class="solution-intro__flex-container p-left--30 p-left--0-xl grid flex flex--column-reverse">
-        <div class="grid__col--md-6">
+        <div class="grid__col--md-6 p-right--30 p-right--0-xl">
           <h2 class="heading heading--h2 text-align--left p-top--40">
             Revolutionize Your Asset Management with an All-in-One SaaS Solution.
           </h2>
@@ -56,7 +87,8 @@
         </div>
       </div>
       <div class="solution-intro__highlight p-x--30 m-top--72 m-bottom--80 grid">
-        <div class="flex__justify--start m-bottom--80 m-bottom--0-lg grid__col--md-4 p-right--80-lg flex flex--column">
+        <div
+          class="flex__justify--start m-bottom--80 m-bottom--0-lg grid__col--12 grid__col--md-4 p-right--80-lg p-left--40 p-left--0-lg flex flex--column">
           <h2 class="heading heading--h1-special">
             € <span class="text-color--secondary">50</span></h2>
           <h3 class="text text-size--16 p-top--10 p-bottom--18">
@@ -66,7 +98,8 @@
             In Assets Under Management (AUM)
           </p>
         </div>
-        <div class="flex__justify--center p-bottom--81 p-bottom--0-lg grid__col--md-4 p-left--40-lg flex flex--column">
+        <div
+          class="flex__justify--center p-bottom--81 p-bottom--0-lg grid__col--12 grid__col--md-4 p-left--40 p-left--40-lg flex flex--column">
           <h2 class="heading heading--h1-special">
             > <span class="text-color--secondary">30</span></h2>
           <h3 class="text text-size--16 p-top--10 p-bottom--18">
@@ -77,7 +110,7 @@
           </p>
         </div>
         <div
-          class="flex__justify--end p-bottom--81 p-bottom--0-lg grid__col--md-4 p-right--70-lg p-left--30-lg flex flex--column">
+          class="flex__justify--end p-bottom--81 p-bottom--0-lg grid__col--12 grid__col--md-4 p-right--70-lg p-left--40 p-left--30-lg flex flex--column">
           <h2 class="heading heading--h1-special">
             > <span class="text-color--secondary">5000</span></h2>
           <h3 class="text text-subtitle--2-special p-top--10 p-bottom--18">
@@ -238,63 +271,63 @@
       <div class="grid flex__align--start">
         <div
           class="solution-features__container feature grid flex--column grid__col--6 grid__col--md-2 p-top--50 p-top--0-lg m-right--40-lg">
-          <img class="grid__col--8 grid__col--md-8" src="./assets/features/icon asset.svg" alt="">
+          <img class="grid__col--8 grid__col--md-8" src="./assets/svg/icon-asset.svg" alt="">
           <p class="feature text grid__col--6 grid__col--md-8">ASSET COVERAGE</p>
         </div>
         <div class="feature grid flex--column grid__col--6 grid__col--md-2  p-top--50 p-top--0-lg m-right--40-lg">
-          <img class="grid__col--8" src="./assets/features/icon nav.svg" alt="">
+          <img class="grid__col--8" src="./assets/svg/icon-nav.svg" alt="">
           <p class="feature text grid__col--6">NAV VALUATION</p>
         </div>
         <div class="feature grid flex--column grid__col--6 grid__col--md-2  p-top--50 p-top--0-lg m-right--40-lg">
-          <img class="grid__col--8" src="./assets/features/icon fees.svg" alt="">
+          <img class="grid__col--8" src="./assets/svg/icon-fees.svg" alt="">
           <p class="feature text grid__col--6">FEES & COMMISSIONS</p>
         </div>
         <div class="feature grid flex--column grid__col--6 grid__col--md-2 p-top--50 p-top--0-lg m-right--40-lg">
-          <img class="grid__col--8" src="./assets/features/icon transactions.svg" alt="">
+          <img class="grid__col--8" src="./assets/svg/icon-transactions.svg" alt="">
           <p class="feature text">TRANSACTION MANAGEMENT</p>
         </div>
         <div class="feature grid flex--column grid__col--6 grid__col--md-2 p-top--50 p-top--0-lg">
-          <img class="grid__col--8" src="./assets/features/icon saas.svg" alt="">
+          <img class="grid__col--8" src="./assets/svg/icon-saas.svg" alt="">
           <p class="feature text grid__col--6">SAAS CLOUD</p>
         </div>
         <div class="feature grid flex--column grid__col--6 grid__col--md-2 p-top--50 m-right--40-lg">
-          <img class="grid__col--8" src="./assets/features/icon corporate.svg" alt="">
+          <img class="grid__col--8" src="./assets/svg/icon-corporate.svg" alt="">
           <p class="feature text grid__col--6">CORPORATE ACTIONS</p>
         </div>
         <div class="feature grid flex--column grid__col--6 grid__col--md-2 p-top--50 m-right--40-lg">
-          <img class="grid__col--8" src="./assets/features/icon data.svg" alt="">
+          <img class="grid__col--8" src="./assets/svg/icon-data.svg" alt="">
           <p class="feature text grid__col--6">DATA FEEDS</p>
         </div>
         <div class="feature grid flex--column grid__col--6 grid__col--md-2  p-top--50 m-right--40-lg">
-          <img class="grid__col--8" src="./assets/features/icon portfolio.svg" alt="">
+          <img class="grid__col--8" src="./assets/svg/icon-portfolio.svg" alt="">
           <p class="feature tex grid__col--6">PORTFOLIO ANALYTICS</p>
         </div>
         <div class="feature grid flex--column grid__col--6 grid__col--md-2  p-top--50 m-right--40-lg">
-          <img class="grid__col--8" src="./assets/features/icon client.svg" alt="">
+          <img class="grid__col--8" src="./assets/svg/icon-client.svg" alt="">
           <p class="feature text grid__col--6">CLIENT PROFILING</p>
         </div>
         <div class="feature grid flex--column grid__col--6 grid__col--md-2  p-top--50">
-          <img class="grid__col--8" src="./assets/features/icon machine.svg" alt="">
+          <img class="grid__col--8" src="./assets/svg/icon-machine.svg" alt="">
           <p class="feature text">MACHINE LEARNING ERROR DETECTION</p>
         </div>
         <div class="feature grid flex--column grid__col--6 grid__col--md-2  p-top--50 m-right--40-lg">
-          <img class="grid__col--8" src="./assets/features/icon accounting.svg" alt="">
+          <img class="grid__col--8" src="./assets/svg/icon-accounting.svg" alt="">
           <p class="feature text">ACCOUNTING</p>
         </div>
         <div class="feature grid flex--column grid__col--6 grid__col--md-2  p-top--50 m-right--40-lg">
-          <img class="grid__col--8" src="./assets/features/icon reporting.svg" alt="">
+          <img class="grid__col--8" src="./assets/svg/icon-reporting.svg" alt="">
           <p class="feature text">REPORTING</p>
         </div>
         <div class="feature grid flex--column grid__col--6 grid__col--md-2  p-top--50 m-right--40-lg">
-          <img class="grid__col--8" src="./assets/features/icon modelling.svg" alt="">
+          <img class="grid__col--8" src="./assets/svg/icon-modelling.svg" alt="">
           <p class="feature text">MODELLING</p>
         </div>
         <div class="feature grid flex--column grid__col--6 grid__col--md-2  p-top--50 m-right--40-lg">
-          <img class="grid__col--8" src="./assets/features/icon risk.svg" alt="">
+          <img class="grid__col--8" src="./assets/svg/icon-risk.svg" alt="">
           <p class="feature text grid__col--6">RISK & COMPLIANCE</p>
         </div>
         <div class="feature grid flex--column grid__col--6 grid__col--md-2  p-top--50">
-          <img class="grid__col--8" src="./assets/features/icon security.svg" alt="">
+          <img class="grid__col--8" src="./assets/svg/icon-security.svg" alt="">
           <p class="feature text">SECURITY</p>
         </div>
       </div>
@@ -365,6 +398,33 @@
         nav.classList.add("box-shadow--bottom");
       } else {
         nav.classList.remove("box-shadow--bottom");
+      }
+    });
+
+    $("button.header--menu").click(function () {
+      $('.header').toggleClass('header--active');
+    });
+
+    $(window).resize(function () {
+      if (($(window).width() <= 992)) {
+        $('.header').removeClass('header--active');
+      }
+    });
+
+    function languageDropdown() {
+      if (($(window).width() > 992)) {
+        $('.header--dropdown').toggleClass('open');
+        $('.button--language').addClass('active');
+      }
+    }
+
+    $(document).mouseup(function (e) {
+      if (($(window).width() > 992)) {
+        var container = $(".button--language");
+        if (!container.is(e.target) && container.has(e.target).length === 0) {
+          $('.header--dropdown').removeClass('open');
+          $('.button--language').removeClass('active');
+        }
       }
     });
   </script>

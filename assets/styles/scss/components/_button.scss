@@ -20,10 +20,16 @@
   &:focus {
     opacity: 0.82;
   }
+
   &-primary {
     background: $color-primary;
   }
+
   &-secondary {
     border: 1px solid $color-white;
+  }
+
+  &-tertiary {
+    border: 1px solid transparent;
   }
 }

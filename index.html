@@ -6,13 +6,23 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="/assets/styles/css/main.css" />
+  <script src="./assets/scripts/jquery.min.js"></script>
+  <script src="./assets/scripts/slick.min.js"></script>
   <title>Celfocus AMS</title>
+  <link
+  rel="icon"
+  type="image/putting"
+  href="/assets/images/favicon-196.png"/>
 </head>
 
 <body>
   <header class="header">
     <section class="flex flex__justify--space-between flex__align--center">
       <a href="/index.html" class="header--brand">Celfocus AMS</a>
+      <button type="button" class="header--menu" onclick="openMenu()">
+        <img src="assets/svg/menu-button.svg" alt="menu button icon" class="header--menu-open" />
+        <img src="assets/svg/close-button.svg" alt="close menu button icon" class="header--menu-close" />
+      </button>
       <nav class="header--navbar">
         <ul class="flex">
           <li><a href="/solution.html">Our solution</a></li>
@@ -20,7 +30,30 @@
         </ul>
       </nav>
       <div class="header--right-content">
-        <button type="button" onclick="alert('hello')">Login</button>
+        <div class="header--button-language-content m-right--0 m-right--20-lg">
+          <button type="button" class="button-tertiary button--language" onclick="languageDropdown()">
+            <img src="assets/svg/translate-button.svg" alt="translation button icon" class="p-right--10" />
+            <span class="text-color--primary">
+              <span class="hide--lg p-right--08">Change</span>Language
+            </span>
+          </button>
+          <ul class="header--dropdown">
+            <li>
+              <input type="radio" id="en" name="fav_language" value="en" />
+              <label for="en">English</label>
+            </li>
+            <li>
+              <input type="radio" id="pt" name="fav_language" value="pt" />
+              <label for="pt">Português</label>
+            </li>
+            <li>
+              <input type="radio" id="es" name="fav_language" value="es" />
+              <label for="es">Español</label>
+            </li>
+          </ul>
+        </div>
+
+        <button type="button" class="button--login" onclick="alert('hello')">Login</button>
       </div>
     </section>
   </header>
@@ -137,6 +170,7 @@
       </p>
     </div>
   </footer>
+
   <script type="text/javascript">
     window.addEventListener('scroll', (e) => {
       const nav = document.querySelector('.header');
@@ -146,6 +180,34 @@
         nav.classList.remove("box-shadow--bottom");
       }
     });
+
+    $("button.header--menu").click(function () {
+      $('.header').toggleClass('header--active');
+    });
+
+    $(window).resize(function () {
+      if (($(window).width() <= 992)) {
+        $('.header').removeClass('header--active');
+      }
+    });
+
+    function languageDropdown() {
+      if (($(window).width() > 992)) {
+        $('.header--dropdown').toggleClass('open');
+        $('.button--language').addClass('active');
+      }
+    }
+
+    $(document).mouseup(function (e) {
+      if (($(window).width() > 992)) {
+        var container = $(".button--language");
+        if (!container.is(e.target) && container.has(e.target).length === 0) {
+          $('.header--dropdown').removeClass('open');
+          $('.button--language').removeClass('active');
+        }
+      }
+    });
+
   </script>
 </body>
 

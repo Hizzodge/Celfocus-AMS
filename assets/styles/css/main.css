@@ -13243,6 +13243,9 @@ body[dir=rtl] .p-left--200 {
 .button-secondary {
   border: 1px solid #ffffff;
 }
+.button-tertiary {
+  border: 1px solid transparent;
+}
 
 .feature {
   font-size: 1rem;
@@ -13257,11 +13260,16 @@ body[dir=rtl] .p-left--200 {
 }
 
 .header {
-  padding: 1rem 2.5rem;
+  padding: 1rem 1.875rem;
   background-color: #ffffff;
   position: sticky;
   top: 0;
   z-index: 99;
+}
+@media all and (min-width: 992px) {
+  .header {
+    padding: 1rem 2.5rem;
+  }
 }
 .header--brand {
   font-family: "Open Sans", sans-serif;
@@ -13271,13 +13279,19 @@ body[dir=rtl] .p-left--200 {
 .header--navbar {
   margin-left: 2.125rem;
   flex-grow: 1;
+  display: none;
+}
+@media all and (min-width: 992px) {
+  .header--navbar {
+    display: block;
+  }
 }
 .header--navbar ul {
   margin: 0;
   padding: 0;
 }
 .header--navbar li {
-  margin: 0 0.625rem;
+  margin: 0 1.125rem;
 }
 .header--navbar li a {
   font-size: 0.875rem;
@@ -13287,19 +13301,191 @@ body[dir=rtl] .p-left--200 {
   text-transform: uppercase;
   border-bottom: 1px solid transparent;
 }
-.header--navbar li a:hover {
+.header--navbar li a:hover, .header--navbar li a.active {
   border-bottom: 1px solid #231f20;
 }
 .header--right-content {
   margin-left: auto;
+  display: none;
+}
+@media all and (min-width: 992px) {
+  .header--right-content {
+    display: flex;
+  }
+}
+.header--right-content .button--login {
+  border: 1px solid #231f20;
+}
+.header--right-content .button--language.active {
+  background-color: rgba(200, 201, 203, 0.2);
 }
 .header--right-content button {
   padding: 0.5rem 2.5rem;
-  border: 1px solid #231f20;
   border-radius: 1.5rem;
 }
 .header--right-content button:hover {
   background-color: rgba(200, 201, 203, 0.2);
+}
+.header--button-language-content {
+  position: relative;
+}
+.header--button-language-content button {
+  width: 100%;
+  padding: 0.5rem 1.875rem;
+}
+.header--button-language-content button:hover {
+  background-color: transparent;
+}
+@media all and (min-width: 992px) {
+  .header--button-language-content button:hover {
+    background-color: rgba(200, 201, 203, 0.2);
+  }
+}
+@media all and (min-width: 992px) {
+  .header--button-language-content button span.hide--lg {
+    display: none;
+  }
+}
+.header--dropdown {
+  border-bottom: 1px solid #c8c9cb;
+  padding: 0.25rem 1.875rem 1rem 3.75rem;
+  margin: 0;
+}
+.header--dropdown li {
+  padding: 0.625rem 1.125rem 0.625rem 1.875rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.header--dropdown li label {
+  padding-left: 0.625rem;
+}
+.header--dropdown li label::before, .header--dropdown li label::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 50%;
+}
+.header--dropdown li label::before {
+  left: 0;
+  width: 1.375rem;
+  height: 1.375rem;
+  border: 2px solid #231f20;
+}
+.header--dropdown li input {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+}
+.header--dropdown li input:checked ~ label::after {
+  left: 5px;
+  width: 0.75rem;
+  height: 0.75rem;
+  background-color: #231f20;
+}
+@media all and (min-width: 992px) {
+  .header--dropdown {
+    display: none;
+    position: absolute;
+    box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.3);
+    background-color: #ffffff;
+    width: 100%;
+    top: calc(100% + 10px);
+    border-radius: 0 0 4px 4px;
+    padding: 0.625rem 0;
+  }
+  .header--dropdown.open {
+    display: block;
+  }
+  .header--dropdown li {
+    padding: 0.625rem 1.125rem;
+  }
+  .header--dropdown li:hover {
+    background-color: rgba(200, 201, 203, 0.2);
+  }
+  .header--dropdown li label {
+    padding-left: 0;
+  }
+  .header--dropdown li label::before, .header--dropdown li label::after {
+    display: none;
+  }
+}
+.header--menu {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+.header--menu-close {
+  display: none;
+}
+@media all and (min-width: 992px) {
+  .header--menu {
+    display: none;
+  }
+}
+.header--active {
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.3);
+  padding: 1rem 0;
+  position: fixed;
+  top: 0px;
+  left: 0;
+  width: 100%;
+}
+.header--active + .home-intro, .header--active + .solution-intro {
+  margin-top: 4.5rem;
+}
+.header--active > section {
+  flex-wrap: wrap;
+}
+.header--active .header--brand {
+  padding-left: 1.875rem;
+}
+.header--active .header--menu {
+  margin-right: 1.875rem;
+}
+.header--active .header--menu-close {
+  display: flex;
+}
+.header--active .header--menu-open {
+  display: none;
+}
+.header--active .header--navbar {
+  display: block;
+  margin-left: 0;
+  width: 100%;
+}
+.header--active .header--navbar ul {
+  flex-direction: column;
+  margin-top: 1rem;
+}
+.header--active .header--navbar li {
+  margin: 0;
+  border-top: 1px solid #c8c9cb;
+}
+.header--active .header--navbar li a {
+  padding: 1rem 1.875rem;
+  width: 100%;
+}
+.header--active .header--navbar li a:hover, .header--active .header--navbar li a.active {
+  border-color: transparent;
+}
+.header--active .header--right-content {
+  display: block;
+  margin-left: 0;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-top: 1px solid #c8c9cb;
+}
+.header--active .header--right-content .button--login {
+  margin: 8.75rem auto 3.75rem;
+}
+.header--active .header--right-content .button-tertiary {
+  border-radius: 0;
+  padding: 1rem 1.875rem;
 }
 
 .home-intro {
@@ -13478,29 +13664,39 @@ body[dir=rtl] .p-left--200 {
 }
 .solution-back-office__background {
   position: absolute;
-  bottom: 52%;
+  bottom: 45vh;
   left: 0;
-  width: 50%;
-  height: 50%;
+  width: 50vw;
+  height: 600px;
+}
+@media all and (max-width: 340px) {
+  .solution-back-office__background {
+    bottom: 95vh;
+    height: 80vh;
+  }
+}
+@media all and (min-width: 600px) {
+  .solution-back-office__background {
+    bottom: 30vh;
+    height: 105vh;
+  }
 }
 @media all and (min-width: 992px) {
   .solution-back-office__background {
     bottom: 0;
     left: 0;
     width: 33%;
-    height: 146%;
+    height: 104vh;
   }
 }
 .solution-back-office__background img {
   object-fit: cover;
-  width: 200px;
-  height: 400px;
+  width: 100%;
+  height: 100%;
 }
-@media all and (min-width: 992px) {
-  .solution-back-office__background img {
-    width: 100%;
-    height: 100%;
-  }
+.solution-back-office__container {
+  position: relative;
+  z-index: 1;
 }
 @media all and (min-width: 992px) {
   .solution-back-office__container {
