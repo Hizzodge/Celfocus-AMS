@@ -1,214 +1,313 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/assets/styles/css/main.css" />
+    <script src="./assets/scripts/jquery.min.js"></script>
+    <script src="./assets/scripts/slick.min.js"></script>
+    <script src="./assets/scripts/main.js"></script>
+    <title>Celfocus AMS</title>
+    <link
+      rel="icon"
+      type="image/putting"
+      href="/assets/images/favicon-196.png"
+    />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="/assets/styles/css/main.css" />
-  <script src="./assets/scripts/jquery.min.js"></script>
-  <script src="./assets/scripts/slick.min.js"></script>
-  <title>Celfocus AMS</title>
-  <link
-  rel="icon"
-  type="image/putting"
-  href="/assets/images/favicon-196.png"/>
-</head>
+    <script src="js/translate.js"></script>
+    <script src="js/index.js"></script>
+  </head>
 
-<body>
-  <header class="header">
-    <section class="flex flex__justify--space-between flex__align--center">
-      <a href="/index.html" class="header--brand">Celfocus AMS</a>
-      <button type="button" class="header--menu" onclick="openMenu()">
-        <img src="assets/svg/menu-button.svg" alt="menu button icon" class="header--menu-open" />
-        <img src="assets/svg/close-button.svg" alt="close menu button icon" class="header--menu-close" />
-      </button>
-      <nav class="header--navbar">
-        <ul class="flex">
-          <li><a href="/solution.html">Our solution</a></li>
-          <li><a href="#contacts">Contacts</a></li>
-        </ul>
-      </nav>
-      <div class="header--right-content">
-        <div class="header--button-language-content m-right--0 m-right--20-lg">
-          <button type="button" class="button-tertiary button--language" onclick="languageDropdown()">
-            <img src="assets/svg/translate-button.svg" alt="translation button icon" class="p-right--10" />
-            <span class="text-color--primary">
-              <span class="hide--lg p-right--08">Change</span>Language
-            </span>
-          </button>
-          <ul class="header--dropdown">
+  <body id="page-top" onload="startupTranslate()">
+    <header class="header">
+      <section
+        class="flex flex__justify--space-between flex__align--center text-size--16 test"
+      >
+        <a
+          href="/index.html"
+          class="header--brand"
+          i18n="shared.celfocusAMS"
+        ></a>
+        <button type="button" class="header--menu">
+          <img
+            src="assets/svg/menu-button.svg"
+            alt="menu button icon"
+            class="header--menu-open"
+          />
+          <img
+            src="assets/svg/close-button.svg"
+            alt="close menu button icon"
+            class="header--menu-close"
+          />
+        </button>
+        <nav class="header--navbar">
+          <ul class="flex">
+            <li><a href="/solution.html" i18n="shared.ourSolution"></a></li>
             <li>
-              <input type="radio" id="en" name="fav_language" value="en" />
-              <label for="en">English</label>
-            </li>
-            <li>
-              <input type="radio" id="pt" name="fav_language" value="pt" />
-              <label for="pt">Português</label>
-            </li>
-            <li>
-              <input type="radio" id="es" name="fav_language" value="es" />
-              <label for="es">Español</label>
+              <a
+                href="#contacts"
+                class="nav-contacts"
+                onclick="closeNav()"
+                i18n="shared.contacts"
+              ></a>
             </li>
           </ul>
-        </div>
+        </nav>
+        <div class="header--right-content">
+          <div
+            class="header--button-language-content m-right--0 m-right--20-lg"
+          >
+            <button
+              type="button"
+              class="button-tertiary button--language"
+              onclick="languageDropdown()"
+            >
+              <img
+                src="assets/svg/translate-button.svg"
+                alt="translation button icon"
+                class="p-right--10"
+              />
+              <span class="text-color--primary" i18n="shared.language">
+                <span class="hide--lg p-right--08">Change</span>
+              </span>
+            </button>
+            <ul class="header--dropdown">
+              <li id="enLanguage">
+                <input
+                  type="radio"
+                  id="enTranslator"
+                  name="fav_language"
+                  value="en"
+                  onclick="hideChoosenLanguage('enLanguage')"
+                />
+                <label for="en">English</label>
+              </li>
+              <li id="ptLanguage">
+                <input
+                  type="radio"
+                  id="ptTranslator"
+                  name="fav_language"
+                  value="pt"
+                  onclick="hideChoosenLanguage('ptLanguage')"
+                />
+                <label for="pt">Português</label>
+              </li>
+              <li id="esLanguage">
+                <input
+                  type="radio"
+                  id="esTranslator"
+                  name="fav_language"
+                  value="es"
+                  onclick="hideChoosenLanguage('esLanguage')"
+                />
+                <label for="es">Español</label>
+              </li>
+            </ul>
+          </div>
 
-        <button type="button" class="button--login" onclick="alert('hello')">Login</button>
+          <button
+            type="button"
+            id="login"
+            class="button--login"
+            onclick=" window.open('https://clients.ams.celfocus.com/#/login'); return false;"
+            i18n="shared.login"
+          ></button>
+        </div>
+      </section>
+    </header>
+
+    <section class="home-intro p-x--30 p-x--0-lg text-align--center">
+      <video
+        src="./assets/videos/earth-globe.mov"
+        autoplay
+        muted
+        loop
+        id="home-video"
+        playsinline
+      ></video>
+
+      <div class="home-intro__content">
+        <p
+          class="p-x--0 p-bottom--10 p-bottom--20-lg text text-subtitle--2"
+          i18n="index.assetManagementSystem"
+        ></p>
+        <h2
+          class="p-x--0 heading heading--h1 p-x--140-lg"
+          i18n="index.mainTitle"
+        ></h2>
       </div>
     </section>
-  </header>
-
-  <section class="home-intro p-x--30 p-x--0-lg text-align--center section--min-height">
-    <div class="">
-      <p class="p-x--0 p-bottom--10 p-bottom--20-lg text text-subtitle--2">
-        ASSET MANAGEMENT SYSTEM
-      </p>
-      <h2 class="p-x--0 heading heading--h1 p-x--140-lg">
-        Rasing the game in the <span class="text--background">asset management</span> industry.
-      </h2>
-    </div>
-
-  </section>
-  <section class="home-news  p-x--30 p-x--0-lg ">
-    <div class="grid flex flex--column flex__justify--space-between section--min-height  p-bottom--100-lg">
-      <div class="home-news__content p-x--0 grid__col--12 grid__col--md-6 flex flex--column p-top--140-lg">
-        <p class="p-top--58 p-top--0-lg p-bottom--10 p-bottom--20-lg text text-subtitle--2">
-          # NEWS
-        </p>
-        <h2 class="heading heading--h3 p-bottom--20 p-bottom--40-lg">
-          Celfocus Unifies Branding with Renaming of Binfolio to Celfocus AMS.
+    <section class="home-news p-x--30 p-x--0-lg">
+      <div
+        class="grid flex flex--column flex__justify--space-between section--min-height p-bottom--100-lg"
+      >
+        <div
+          class="home-news__content p-x--0 grid__col--12 grid__col--md-6 flex flex--column p-top--140-lg fade-in position__relative"
+        >
+          <p
+            class="p-top--58 p-top--0-lg p-bottom--10 p-bottom--20-lg text text-subtitle--2"
+            i18n="index.news"
+          ></p>
+          <h2
+            class="heading heading--h3 p-bottom--20 p-bottom--40-lg"
+            i18n="index.binfolioToAMS"
+          ></h2>
+          <p
+            class="text text-body--2 letter-spacing--028"
+            i18n="index.binfolioToAMSText"
+          ></p>
+          <p
+            class="text text-body--2 letter-spacing--028 p-bottom--100-lg"
+            i18n="index.binfolioToAMSText2"
+          ></p>
+        </div>
+        <div
+          class="home-news__image grid__col--12 grid__col--md-6 m-bottom--60 m-bottom--0-lg p-top--0-lg p-top--60 flex flex__align--center flex__justify--center"
+        >
+          <img
+            src="./assets/svg/binfolio-celfocus-ams.svg"
+            alt="binfolio to ams logo"
+          />
+        </div>
+      </div>
+    </section>
+    <section
+      class="home-solution section--min-height flex flex--column flex__justify--space-between flex__align--center p-top--70-lg"
+    >
+      <div
+        class="home-solution__text p-x--30 p-x--60-lg text-align--center grid flex--column flex__justify--center"
+      >
+        <h2
+          class="p-top--100 p-bottom--20 p-bottom--40-lg heading heading--h2 grid__col--md-12 fade-in"
+          i18n="index."
+        >
+          Make your back-office operations more efficient, reliable and scale
+          your business.
         </h2>
-        <p class="text text-body--2 letter-spacing--028">
-          We are excited to announce that our product “Binfolio” is now
-          officially renamed to “<strong>Celfocus AMS</strong>” (Asset
-          Management System). This change is part of our company’s branding
-          unification efforts, and all of our products will now carry the
-          “Celfocus” name with their respective product acronyms.
-        </p>
-        <p class="text text-body--2 letter-spacing--028 p-bottom--100-lg">
-          Our team has been working hard to ensure a seamless transition, and
-          you can expect the same level of quality, reliability, and support
-          that you have come to expect from us.
-        </p>
+        <p
+          class="text text-body--1 letter-spacing--003 grid__col--md-12 p-x--40-lg fade-in"
+          i18n="index.singleSolution"
+        ></p>
+        <div class="m-y--50 flex flex__justify--center">
+          <button
+            class="button button-primary text text-body--2 flex__align--center"
+            type="button"
+            onclick="window.location.href='/solution.html';"
+            i18n="index.ourSolution2"
+          ></button>
+        </div>
       </div>
+      <div class="home-solution__image grid">
+        <img
+          src="./assets/images/img-footer-pc.png"
+          alt="ams software image"
+          class="grid__col--md-8"
+        />
+      </div>
+    </section>
+    <section class="home-content section--min-height">
       <div
-        class="home-news__image grid__col--12 grid__col--md-6 m-bottom--60 m-bottom--0-lg p-top--0-lg p-top--60 flex flex__align--center flex__justify--center">
-        <img src="./assets/svg/binfolio-celfocus-ams.svg" />
+        class="home-content__text grid flex flex--column text-color--white text-align--left flex flex--column flex__justify--space-between"
+      >
+        <div
+          class="home-content__description grid__col--md-7 flex flex--column flex__align--center flex__justify--center p-x--30 p-right--80-xl p-left--0-xl fade-in"
+        >
+          <h2
+            class="heading heading--h2 m--0 p-top--70 p-bottom--30"
+            i18n="shared.unleash"
+          ></h2>
+          <p
+            class="line-height--22 text text-body--1 p-bottom--50"
+            i18n="shared.workTogether"
+          ></p>
+        </div>
+        <div
+          class="home-content__image grid__col--md-5 position__relative flex flex__align--center flex__justify--center"
+        >
+          <img
+            src="./assets/svg/footer-filter.svg"
+            alt="footer background image"
+            class=""
+          />
+          <button
+            class="button button-secondary text text-body--2 flex__align--center"
+            type="button"
+            onclick=" window.open('https://celfocus.com/home/index.php/resources/financial-services-asset-management-white-paper', '_blank'); return false;"
+            i18n="shared.whitePaper"
+          ></button>
+        </div>
       </div>
-    </div>
-  </section>
-  <section
-    class="home-solution section--min-height flex flex--column flex__justify--space-between flex__align--center p-top--70-lg">
-    <div class="home-solution__text p-x--30 p-x--60-lg text-align--center grid flex--column flex__justify--center">
-      <h2 class="p-top--100 p-bottom--20 p-bottom--40-lg heading heading--h2 grid__col--md-12">
-        Make your middle and back-office operations more efficient, reliable
-        and secure.
-      </h2>
-      <p class="text text-body--1 letter-spacing--003 grid__col--md-12 p-x--40-lg">
-        A single solution to manage the entire asset management workflow to
-        reduce costs in licensing and training while providing business teams
-        with an integrated view of portfolios, which can be crucial for
-        profitability.
-      </p>
-      <div class="m-y--50 flex flex__justify--center">
-        <button class="button button-primary text text-body--2 flex__align--center" type="button"
-          onclick="alert('hello')">
-          OUR SOLUTION
-        </button>
+    </section>
+
+    <footer id="contacts" class="footer grid">
+      <div class="footer--info grid__col--12 grid__col--md-5">
+        <a
+          href="https://celfocus.com/"
+          target="_blank"
+          class="footer--info-brand"
+        >
+          <img
+            src="./assets/images/celfocus-NB-logo.png"
+            class=""
+            alt="celfocus logo"
+          />
+        </a>
+        <ul class="list">
+          <li>
+            <a
+              href="https://celfocus.com/home/who-we-are"
+              target="_blank"
+              i18n="shared.whoWeAre"
+            >
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://celfocus.com/home/who-we-are#contact-us"
+              target="_blank"
+              i18n="shared.contactUs"
+            >
+            </a>
+          </li>
+        </ul>
       </div>
-    </div>
-    <div class="home-solution__image grid">
-      <img src="./assets/images/img-footer-pc.png" alt="" class="grid__col--md-8" />
-    </div>
-  </section>
-  <section class="home-content section--min-height">
-    <div
-      class="home-content__text  grid flex flex--column text-color--white text-align--left flex flex--column flex__justify--space-between">
-      <div
-        class="home-content__description grid__col--md-7 flex flex--column flex__align--center flex__justify--center p-x--30 p-right--80-xl p-left--0-xl">
-        <h2 class="heading heading--h2 m--0 p-top--70  p-bottom--30">
-          Ready to unleash the power of your asset data?
-        </h2>
-        <p class="line-height--22 text text-body--1 p-bottom--50">
-          Let’s work together! Our team of experts is here to help you achieve
-          your goals and drive results.
+      <div class="footer--social-links grid__col--12 grid__col--md-2">
+        <ul>
+          <li>
+            <a
+              href="https://www.linkedin.com/company/celfocus/mycompany/verification/"
+              target="_blank"
+            >
+              <img src="./assets/svg/linkedin.svg" alt="linkedin logo" />
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.instagram.com/celfocus/?igshid=xkkubbgfhed9"
+              target="_blank"
+            >
+              <img src="./assets/svg/instagram.svg" alt="instagram logo" />
+            </a>
+          </li>
+          <li>
+            <a href="https://www.facebook.com/celfocus" target="_blank">
+              <img src="./assets/svg/facebook.svg" alt="facebook logo" />
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="footer--copyright grid__col--12 grid__col--md-5">
+        <p>
+          <span i18n="shared.copyright"></span>
+          <a
+            class="footer-rights--link"
+            href="https://www.celfocus.com/home/privacy-notice"
+            target="_blank"
+            i18n="shared.privacyNotice"
+          ></a>
         </p>
       </div>
-      <div
-        class="home-content__image grid__col--md-5 position__relative flex flex__align--center flex__justify--center">
-        <img src="./assets/svg/footer-filter.svg" alt="" class="" />
-        <button class="button button-secondary text text-body--2 flex__align--center" type="button"
-          onclick="alert('hello')">
-          DOWNLOAD OUR WHITE PAPER
-        </button>
-      </div>
-    </div>
-
-  </section>
-
-  <footer id="contacts" class="footer grid">
-    <div class="footer--info grid__col--12 grid__col--md-5">
-      <a href="#" class="footer--info-brand">
-        <img src="./assets/images/celfocus-NB-logo.png" class="" alt="celfocus logo" />
-      </a>
-      <ul class="list">
-        <li><a href="#">Who we are</a></li>
-        <li><a href="#">Contact us</a></li>
-      </ul>
-    </div>
-    <div class="footer--social-links grid__col--12 grid__col--md-2">
-      <ul>
-        <li><a href="#"><img src="./assets/svg/linkedin.svg" /></a></li>
-        <li><a href="#"><img src="./assets/svg/instagram.svg" /></a></li>
-        <li><a href="#"><img src="./assets/svg/facebook.svg" /></a></li>
-      </ul>
-    </div>
-    <div class="footer--copyright grid__col--12 grid__col--md-5">
-      <p>
-        <span>&copy 2023 Celfocus. All rights reserved.</span>
-        <a class="footer-rights--link" href="" target="_blank">Privacy Notice</a>
-      </p>
-    </div>
-  </footer>
-
-  <script type="text/javascript">
-    window.addEventListener('scroll', (e) => {
-      const nav = document.querySelector('.header');
-      if (window.pageYOffset > 0) {
-        nav.classList.add("box-shadow--bottom");
-      } else {
-        nav.classList.remove("box-shadow--bottom");
-      }
-    });
-
-    $("button.header--menu").click(function () {
-      $('.header').toggleClass('header--active');
-    });
-
-    $(window).resize(function () {
-      if (($(window).width() <= 992)) {
-        $('.header').removeClass('header--active');
-      }
-    });
-
-    function languageDropdown() {
-      if (($(window).width() > 992)) {
-        $('.header--dropdown').toggleClass('open');
-        $('.button--language').addClass('active');
-      }
-    }
-
-    $(document).mouseup(function (e) {
-      if (($(window).width() > 992)) {
-        var container = $(".button--language");
-        if (!container.is(e.target) && container.has(e.target).length === 0) {
-          $('.header--dropdown').removeClass('open');
-          $('.button--language').removeClass('active');
-        }
-      }
-    });
-
-  </script>
-</body>
-
+    </footer>
+  </body>
 </html>

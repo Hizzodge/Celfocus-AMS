@@ -10,135 +10,134 @@
   <link rel="stylesheet" href="/assets/styles/css/main.css">
   <script src="./assets/scripts/jquery.min.js"></script>
   <script src="./assets/scripts/slick.min.js"></script>
+  <script src="./assets/scripts/main.js"></script>
+
   <title>Celfocus AMS</title>
   <link
   rel="icon"
   type="image/putting"
   href="/assets/images/favicon-196.png"/>
+
+  <script src="js/translate.js"></script>
+  <script src="js/index.js"></script>  
 </head>
 
-<body>
+<body id="page-top" onload="startupTranslate()">
   <header class="header">
     <section class="flex flex__justify--space-between flex__align--center">
-      <a href="/index.html" class="header--brand">Celfocus AMS</a>
-      <button type="button" class="header--menu" onclick="openMenu()">
+      <a href="/index.html" class="header--brand" i18n="shared.celfocusAMS"></a>
+      <button type="button" class="header--menu">
         <img src="assets/svg/menu-button.svg" alt="menu button icon" class="header--menu-open" />
         <img src="assets/svg/close-button.svg" alt="close menu button icon" class="header--menu-close" />
       </button>
       <nav class="header--navbar">
         <ul class="flex">
-          <li><a href="/solution.html" class="active">Our solution</a></li>
-          <li><a href="#contacts">Contacts</a></li>
+          <li><a href="/solution.html" class="active" i18n="shared.ourSolution"></a></li>
+          <li><a href="#contacts" class="nav-contacts" i18n="shared.contacts"></a></li>
         </ul>
       </nav>
       <div class="header--right-content">
         <div class="header--button-language-content m-right--0 m-right--20-lg">
           <button type="button" class="button-tertiary button--language" onclick="languageDropdown()">
             <img src="assets/svg/translate-button.svg" alt="translation button icon" class="p-right--10" />
-            <span class="text-color--primary">
-              <span class="hide--lg p-right--08">Change</span>Language
+            <span class="text-color--primary" id="languageDesc" i18n="shared.language">
+              <span class="hide--lg p-right--08">Change</span>
             </span>
           </button>
           <ul class="header--dropdown">
-            <li>
-              <input type="radio" id="en" name="fav_language" value="en" />
+            <li id="enLanguage">
+              <input type="radio" id="enTranslator" name="fav_language" value="en" onclick="hideChoosenLanguage('enLanguage')"/>
               <label for="en">English</label>
             </li>
-            <li>
-              <input type="radio" id="pt" name="fav_language" value="pt" />
+            <li id="ptLanguage">
+              <input type="radio" id="ptTranslator" name="fav_language" value="pt" onclick="hideChoosenLanguage('ptLanguage')"/>
               <label for="pt">Português</label>
             </li>
-            <li>
-              <input type="radio" id="es" name="fav_language" value="es" />
+            <li id="esLanguage">
+              <input type="radio" id="esTranslator" name="fav_language" value="es" onclick="hideChoosenLanguage('esLanguage')"/>
               <label for="es">Español</label>
             </li>
           </ul>
         </div>
 
-        <button type="button" class="button--login" onclick="alert('hello')">Login</button>
+        <button type="button" id="login" class="button--login" onclick=" window.open('/login.html'); return false;" i18n="shared.login"></button>
       </div>
     </section>
   </header>
 
   <section class="solution-intro section--min-height p-bottom--140-lg p-top--50 p-bottom--10">
     <div class="flex flex--column flex__justify--space-between">
-      <h2 class="text-color--light  text-align--center heading heading--h3 p-x--30  m-bottom--140-lg">
-        <span class="text-color--primary text--background m-right--14-lg">Overview </span>
-        | <span class="m-x--12-lg">Investments funds</span> | <span class="m-x--12-lg">Family offices</span> |
-        <span class="m-x--12-lg">Pension funds</span> |
-        <span class="m-x--12-lg">Wealth
-          managers</span> | <span class="m-x--12-lg">Insurance</span> | <span class="m-x--12-lg">Private equity</span>
-        | <span class="m-x--12-lg">Banks</span> | <span class="m-x--12-lg">Real estate</span>
+      <h2 class="text-color--light  text-align--center heading heading--h3 p-x--30">
+        <!-- <span class="text-color--primary text--background m-right--14-lg" i18n="solution.overview"> </span> -->
+        <span class="m-x--12-lg" i18n="solution.investmentFunds"></span> | <span class="m-x--12-lg" i18n="solution.familyOffices"></span>
+      </h2>
+      <h2 class="text-color--light  text-align--center heading heading--h3 p-x--30">
+        <span class="m-x--12-lg" i18n="solution.pensionFunds"></span> |
+        <span class="m-x--12-lg" i18n="solution.wealthManagers"></span> | <span class="m-x--12-lg" i18n="solution.insurance"></span>
+      </h2>
+      <h2 class="text-color--light  text-align--center heading heading--h3 p-x--30 m-bottom--140-lg">
+        <span class="m-x--12-lg" i18n="solution.privateEquity"></span>
+        | <span class="m-x--12-lg" i18n="solution.banks"></span> | <span class="m-x--12-lg" i18n="solution.realEstate"></span>
       </h2>
       <div class="solution-intro__flex-container p-left--30 p-left--0-xl grid flex flex--column-reverse">
         <div class="grid__col--md-6 p-right--30 p-right--0-xl">
-          <h2 class="heading heading--h2 text-align--left p-top--40">
-            Revolutionize Your Asset Management with an All-in-One SaaS Solution.
-          </h2>
-          <p class="letter-spacing--028 text text-body--2 p-top--20">
-            An All-in-One Middle to Back-office SaaS solution with great UX, flexible and optimised processes for a
-            faster
-            and more reliable performance and faster onboarding of new business lines. A portfolio manager that combines
-            valuation, accounting & reporting with automated data aggregation.
+          <h2 class="heading heading--h2 text-align--left p-top--40" i18n="solution.saas"></h2>
+          <p class="letter-spacing--028 text text-body--2 p-top--20" i18n="solution.saasDetails">
           </p>
         </div>
         <div class="solution-intro--image grid__col--md-6 m-top--40">
-          <img class="image" src="./assets/images/img-footer-pc2.png" alt="">
+          <img class="image" src="./assets/images/pc2-red.png" alt="ams software image">
         </div>
       </div>
       <div class="solution-intro__highlight p-x--30 m-top--72 m-bottom--80 grid">
         <div
           class="flex__justify--start m-bottom--80 m-bottom--0-lg grid__col--12 grid__col--md-4 p-right--80-lg p-left--40 p-left--0-lg flex flex--column">
           <h2 class="heading heading--h1-special">
-            € <span class="text-color--secondary">50</span></h2>
-          <h3 class="text text-size--16 p-top--10 p-bottom--18">
-            BILLION
+            € <span class="text-color--secondary counter" data-target="50">0</span></h2>
+          <h3 class="text text-size--16 p-top--10 p-bottom--18 animated-box" i18n="solution.billion">
+            
           </h3>
-          <p class="text text-body--1-special letter-spacing--003">
-            In Assets Under Management (AUM)
+          <p class="text text-body--1-special letter-spacing--003 animated-box" i18n="solution.aum">
+            
           </p>
         </div>
         <div
           class="flex__justify--center p-bottom--81 p-bottom--0-lg grid__col--12 grid__col--md-4 p-left--40 p-left--40-lg flex flex--column">
           <h2 class="heading heading--h1-special">
-            > <span class="text-color--secondary">30</span></h2>
-          <h3 class="text text-size--16 p-top--10 p-bottom--18">
-            YEARS
+            > <span class="text-color--secondary counter" data-target="30">0</span></h2>
+          <h3 class="text text-size--16 p-top--10 p-bottom--18 animated-box" i18n="solution.years">
+            
           </h3>
-          <p class="text text-body--1-special letter-spacing--003">
-            With satisfied Clients
+          <p class="text text-body--1-special letter-spacing--003 animated-box" i18n="solution.satisfiedClients">
+            
           </p>
         </div>
         <div
           class="flex__justify--end p-bottom--81 p-bottom--0-lg grid__col--12 grid__col--md-4 p-right--70-lg p-left--40 p-left--30-lg flex flex--column">
           <h2 class="heading heading--h1-special">
-            > <span class="text-color--secondary">5000</span></h2>
-          <h3 class="text text-subtitle--2-special p-top--10 p-bottom--18">
-            PORTFOLIOS</h3>
-          <p class="text text-size--16 letter-spacing--003">
-            Our system easily deals with a high volume of portfolios
+            > <span class="text-color--secondary counter" data-target="5000">0</span></h2>
+          <h3 class="text text-subtitle--2-special p-top--10 p-bottom--18 animated-box" i18n="solution.portfolios">
+            </h3>
+          <p class="text text-size--16 letter-spacing--003 animated-box" i18n="solution.highVolume">
+            
           </p>
         </div>
       </div>
   </section>
   <section class="solution-back-office p-x--30 p-y--60 p-y--120-lg p-x--0-xl position__relative">
     <div class="solution-back-office__background">
-      <img src="./assets/svg/background-dot.svg" alt="">
+      <img src="./assets/svg/background-dot.svg" alt="dots background">
     </div>
     <div class="solution-back-office__container flex flex--column flex__justify--space-evenly ">
       <div class="solution-back-office__container-image p-left--30-lg">
-        <img class="" src="./assets/svg/graphic.svg" alt="">
+        <img class="" src="./assets/svg/graphic.svg" alt="graphic">
       </div>
       <div class="solution-back-office__container-text m-left--100-lg">
         <h2
-          class="solution-back-office__heading p-bottom--20 p-bottom--40-lg p-top--120 p-top--0-lg heading heading--h3 letter-spacing--0">
-          Efficient Back Office and Automated Portfolio Management for Your Business.
+          class="solution-back-office__heading p-bottom--20 p-bottom--40-lg p-top--120 p-top--0-lg heading heading--h3 letter-spacing--0 animated-box" i18n="solution.efficient">
         </h2>
-        <p class=" p-bottom--0-lg text letter-spacing--028 text-body--2">
-          Optimize your business with streamlined Back Office processes and accelerated onboarding of new business
-          lines.
-          Our portfolio manager combines valuation, accounting, and reporting with automated data aggregation, ensuring
-          efficient and accurate financial management.
+        <p class=" p-bottom--0-lg text letter-spacing--028 text-body--2 animated-box" i18n="solution.optimize">
+          
         </p>
       </div>
     </div>
@@ -148,54 +147,51 @@
     <div class="m-top--60 ">
       <div class="grid">
         <div class="grid__col--12 grid__col--md-4">
-          <h2 class="heading heading--h3-brands m-bottom--40 m-bottom--60-lg">
-            Who benefits from this solution.
+          <h2 class="heading heading--h3-brands m-bottom--40 m-bottom--60-lg animated-box" i18n="solution.whoBenefits">
+            
           </h2>
         </div>
       </div>
       <div class="grid">
         <div class="item grid__col--12 grid__col--md-4 p-right--20-lg">
-          <img class="" src="./assets/svg/icon-bo.svg" alt="">
-          <h2 class="text text-subtitle--3 m-top--20 p-bottom--30 letter-spacing--003">
-            CHIEF OPERATING OFFICER & HEAD OF BACK OFFICE
+          <img class="" src="./assets/svg/icon-bo.svg" alt="bo figure">
+          <h2 class="text text-subtitle--3 m-top--20 p-bottom--30 letter-spacing--003 animated-box" i18n="solution.coo">
+            
           </h2>
           <div class=" grid__col--12 grid__col--md-6 flex flex--column flex__justify--space-between">
-            <p class="letter-spacing--028 text text-body--2 m-bottom--30">
-              <strong>Priority:</strong> reduce costs and mitigate risks.
+            <p class="letter-spacing--028 text text-body--2 m-bottom--30 animated-box" i18n="solution.cooPriority">
+              
             </p>
-            <p class="letter-spacing--028 text text-body--2">
-              <strong>Goals:</strong> Reliability, Automation, Usability.
+            <p class="letter-spacing--028 text text-body--2 animated-box" i18n="solution.cooGoals">
+
             </p>
           </div>
         </div>
         <div class="item grid__col--12 grid__col--md-4 m-top--60 m-top--0-lg p-right--20-lg p-left--30-lg">
-          <img class="" src="./assets/svg/icon-invest.svg" alt="">
-          <h2 class="text text-subtitle--3 m-top--20 m-bottom--30 letter-spacing--003">
-            CHIEF INVESTMENT OFFICER & HEAD OF INVESTMENT
+          <img class="" src="./assets/svg/icon-invest.svg" alt="invest figure">
+          <h2 class="text text-subtitle--3 m-top--20 m-bottom--30 letter-spacing--003 animated-box" i18n="solution.cio">
+            
           </h2>
           <div class="">
-            <p class=" letter-spacing--028 text text-body--2 m-bottom--30">
-              <strong>Priority:</strong> commercial strategy and offer diversification, valuing data quality and
-              integrity.
+            <p class=" letter-spacing--028 text text-body--2 m-bottom--30 animated-box" i18n="solution.cioPriority">
+
             </p>
-            <p class="letter-spacing--028 text text-body--2">
-              <strong>Goals:</strong> Reporting, Analytics, Customisation.
+            <p class="letter-spacing--028 text text-body--2 animated-box" i18n="solution.cioGoals">
+              
             </p>
           </div>
         </div>
         <div class="item grid__col--12 grid__col--md-4 m-top--60 m-top--0-lg p-left--50-lg">
-          <img class="" src="./assets/svg/icon-it.svg" alt="">
-          <h2 class="text text-subtitle--3 p--0 m-top--20 m-bottom--30 letter-spacing--003">
-            HEAD OF IT
+          <img class="" src="./assets/svg/icon-it.svg" alt="IT figure">
+          <h2 class="text text-subtitle--3 p--0 m-top--20 m-bottom--30 letter-spacing--003 animated-box" i18n="solution.itHead">
+            
           </h2>
           <div class="">
-            <p class="letter-spacing--028 text text-body--2 m-bottom--10 p-top--20-lg">
-              <strong>Priority:</strong> operational efficiency while reducing the total cost of ownership and
-              maintaining
-              infrastructure reliability.
+            <p class="letter-spacing--028 text text-body--2 m-bottom--10 p-top--20-lg animated-box" i18n="solution.itHeadPriority">
+
             </p>
-            <p class="letter-spacing--028 text text-body--2 p-bottom--90 p-bottom--0-lg">
-              <strong>Goals:</strong> Easy Deployment & Maintenance, Less Support, Audit Trails.
+            <p class="letter-spacing--028 text text-body--2 p-bottom--90 p-bottom--0-lg animated-box" i18n="solution.itHeadGoals">
+              
             </p>
           </div>
 
@@ -206,32 +202,29 @@
 
   </section>
   <section class="solution-opinions">
-    <div class="p-x--30 p-x--90-lg text-align--center p-top--100 p-bottom--100 slider-test">
+    <div class="p-x--30 p-x--90-lg text-align--center p-top--100 p-bottom--100 slider">
       <div>
-        <h2 class="m-bottom--20 text-subtitle--1 letter-spacing--0">
-          “… between tax and regulatory changes, there are also updates to be done. AMS has always implemented all the
-          needed changes, answering successfully to our needs.”
+        <h2 class="m-bottom--20 text-subtitle--1 letter-spacing--0" i18n="solution.imgaTestimonial">
+          
         </h2>
-        <p class="text text-body--2 letter-spacing--028 p-x--20">
-          João Fialho, Operations Division Manager at <strong>IMGA</strong>
+        <p class="text text-body--2 letter-spacing--028 p-x--20" i18n="solution.imgaPerson">
+          
         </p>
       </div>
       <div>
-        <h2 class="m-bottom--20 text-subtitle--1 letter-spacing--0">
-          “So far as a valuation software has been an extremely positive one. The advantage is that we have more time to
-          focus on portfolio management decisions”
+        <h2 class="m-bottom--20 text-subtitle--1 letter-spacing--0" i18n="solution.petraTestimonial">
+          
         </h2>
-        <p class="text text-body--2 letter-spacing--028 p-x--20">
-          Chris Hammond, Deputy Managing Director at <strong>Petra Trust’s</strong>
+        <p class="text text-body--2 letter-spacing--028 p-x--20" i18n="solution.petraPerson">
+
         </p>
       </div>
       <div>
-        <h2 class="m-bottom--20 text-subtitle--1 letter-spacing--0">
-          “The team has been really helpful, guiding us through questions that naturally arise when putting hands on the
-          job and providing quick and easy explanations.”
+        <h2 class="m-bottom--20 text-subtitle--1 letter-spacing--0" i18n="solution.hemeraTestimonial">
+          
         </h2>
-        <p class="text text-body--2 letter-spacing--028 p-x--20">
-          Virgínia de Figueiredo, Operations/Back Office Supervisor at <strong>Hemera Capital Partners</strong>
+        <p class="text text-body--2 letter-spacing--028 p-x--20" i18n="solution.hemeraPerson">
+
         </p>
       </div>
     </div>
@@ -239,96 +232,96 @@
   <section class="solution-brands p-x--30 p-x--0-xl p-y--90 p-y--140-lg">
     <div class="flex flex--column flex__justify--space-evenly">
       <div class="grid">
-        <h2 class="heading heading--h3-brands m-bottom--30 m-bottom--10-lg grid__col--12 grid__col--md-5">
-          Some of the brands that trust us.
+        <h2 class="heading heading--h3-brands m-bottom--30 m-bottom--10-lg grid__col--12 grid__col--md-5" i18n="solution.brands">
+          
         </h2>
-        <p class="text text-body--brands grid__col--12 grid__col--md-12">
-          Fill out the form and we will contact you!
+        <p class="text text-body--brands grid__col--12 grid__col--md-12" i18n="solution.fillForm">
+          
         </p>
       </div>
       <div class="solution-brands__image grid flex__justify--space-evenly flex__align--center p-top--60">
         <div class="container flex grid__col--6 grid__col--md-2">
-          <img src="./assets/brands/imga-logo.png" alt="" class="">
+          <img src="./assets/brands/imga-logo.png" alt="imga logo" class="">
         </div>
         <div class="container grid__col--6 grid__col--md-2">
-          <img src="./assets/brands/petra-logo.png" alt="" class="">
+          <img src="./assets/brands/petra-logo.png" alt="petra logo" class="">
         </div>
         <div class="container grid__col--6 grid__col--md-2 flex__justify--center flex__align--center">
-          <img src="./assets/brands/millennium-logo.png" alt="" class="">
+          <img src="./assets/brands/millennium-logo.png" alt="millennium icon" class="">
         </div>
         <div class="container grid__col--6 grid__col--md-2">
-          <img src="./assets/brands/ageas-logo.png" alt="" class="">
+          <img src="./assets/brands/ageas-logo.png" alt="ageas logo" class="">
         </div>
         <div class="container grid__col--6 grid__col--md-2 flex__justify--center">
-          <img src="./assets/brands/sartor-logo.png" alt="" class="">
+          <img src="./assets/brands/sartor-logo.png" alt="sartor logo" class="">
         </div>
       </div>
     </div>
   </section>
-  <section class="solution-features section--min-height p-x--30 p-y--70 ">
+  <section class="solution-features section--min-height p-x--30 p-y--70 p-y--100-lg ">
     <div class="m-bottom--120-lg">
-      <h2 class="heading heading--h3-brands p-bottom--30 p-bottom--80-lg">Main Features</h2>
-      <div class="grid flex__align--start">
+      <h2 class="heading heading--h3-brands p-bottom--30 p-bottom--80-lg animated-box" i18n="solution.mainFeatures"></h2>
+      <div class="solution-features__container grid flex__align--start">
         <div
-          class="solution-features__container feature grid flex--column grid__col--6 grid__col--md-2 p-top--50 p-top--0-lg m-right--40-lg">
-          <img class="grid__col--8 grid__col--md-8" src="./assets/svg/icon-asset.svg" alt="">
-          <p class="feature text grid__col--6 grid__col--md-8">ASSET COVERAGE</p>
+          class="feature grid flex--column grid__col--6 grid__col--md-2 p-top--50 p-top--0-lg m-right--40-lg">
+          <img class="grid__col--8 grid__col--md-8" src="./assets/svg/icon-asset.svg" alt="asset icon">
+          <p class="feature text grid__col--8 grid__col--md-8" i18n="solution.assetCoverage"></p>
         </div>
         <div class="feature grid flex--column grid__col--6 grid__col--md-2  p-top--50 p-top--0-lg m-right--40-lg">
-          <img class="grid__col--8" src="./assets/svg/icon-nav.svg" alt="">
-          <p class="feature text grid__col--6">NAV VALUATION</p>
+          <img class="grid__col--8" src="./assets/svg/icon-nav.svg" alt="nav icon">
+          <p class="feature text grid__col--6" i18n="solution.navValuation"></p>
         </div>
         <div class="feature grid flex--column grid__col--6 grid__col--md-2  p-top--50 p-top--0-lg m-right--40-lg">
-          <img class="grid__col--8" src="./assets/svg/icon-fees.svg" alt="">
-          <p class="feature text grid__col--6">FEES & COMMISSIONS</p>
+          <img class="grid__col--8" src="./assets/svg/icon-fees.svg" alt="fees icon">
+          <p class="feature text grid__col--8 grid__col--md-8" i18n="solution.fees&Commissions"></p>
         </div>
         <div class="feature grid flex--column grid__col--6 grid__col--md-2 p-top--50 p-top--0-lg m-right--40-lg">
-          <img class="grid__col--8" src="./assets/svg/icon-transactions.svg" alt="">
-          <p class="feature text">TRANSACTION MANAGEMENT</p>
+          <img class="grid__col--8" src="./assets/svg/icon-flexible-asset.svg" alt="transactions icon">
+          <p class="feature text" i18n="solution.flexibleAssetClassification"></p>
         </div>
-        <div class="feature grid flex--column grid__col--6 grid__col--md-2 p-top--50 p-top--0-lg">
-          <img class="grid__col--8" src="./assets/svg/icon-saas.svg" alt="">
-          <p class="feature text grid__col--6">SAAS CLOUD</p>
-        </div>
-        <div class="feature grid flex--column grid__col--6 grid__col--md-2 p-top--50 m-right--40-lg">
-          <img class="grid__col--8" src="./assets/svg/icon-corporate.svg" alt="">
-          <p class="feature text grid__col--6">CORPORATE ACTIONS</p>
+        <div class="feature grid flex--column grid__col--6 grid__col--md-2  p-top--50 p-top--0-lg">
+          <img class="grid__col--8" src="./assets/svg/icon-saas.svg" alt="sass icon">
+          <p class="feature text grid__col--6 grid__col--md-8" i18n="solution.saasCloud"></p>
         </div>
         <div class="feature grid flex--column grid__col--6 grid__col--md-2 p-top--50 m-right--40-lg">
-          <img class="grid__col--8" src="./assets/svg/icon-data.svg" alt="">
-          <p class="feature text grid__col--6">DATA FEEDS</p>
+          <img class="grid__col--8" src="./assets/svg/icon-corporate.svg" alt="corporate icon">
+          <p class="feature text grid__col--6" i18n="solution.corporateActions"></p>
+        </div>
+        <div class="feature grid flex--column grid__col--6 grid__col--md-2 p-top--50 m-right--40-lg">
+          <img class="grid__col--8" src="./assets/svg/icon-data.svg" alt="data icon">
+          <p class="feature text grid__col--6 grid__col--md-8" i18n="solution.dataFeeds"></p>
         </div>
         <div class="feature grid flex--column grid__col--6 grid__col--md-2  p-top--50 m-right--40-lg">
-          <img class="grid__col--8" src="./assets/svg/icon-portfolio.svg" alt="">
-          <p class="feature tex grid__col--6">PORTFOLIO ANALYTICS</p>
+          <img class="grid__col--8" src="./assets/svg/icon-portfolio.svg" alt="portfolio icon">
+          <p class="feature tex grid__col--6" i18n="solution.portfolioAnalytics"></p>
         </div>
         <div class="feature grid flex--column grid__col--6 grid__col--md-2  p-top--50 m-right--40-lg">
-          <img class="grid__col--8" src="./assets/svg/icon-client.svg" alt="">
-          <p class="feature text grid__col--6">CLIENT PROFILING</p>
+          <img class="grid__col--8" src="./assets/svg/icon-client.svg" alt="client icon">
+          <p class="feature text grid__col--6" i18n="solution.clientProfiling"></p>
         </div>
         <div class="feature grid flex--column grid__col--6 grid__col--md-2  p-top--50">
-          <img class="grid__col--8" src="./assets/svg/icon-machine.svg" alt="">
-          <p class="feature text">MACHINE LEARNING ERROR DETECTION</p>
+          <img class="grid__col--8" src="./assets/svg/icon-machine.svg" alt="machine icon">
+          <p class="feature text" i18n="solution.machineLearningErrorDetection"></p>
         </div>
         <div class="feature grid flex--column grid__col--6 grid__col--md-2  p-top--50 m-right--40-lg">
-          <img class="grid__col--8" src="./assets/svg/icon-accounting.svg" alt="">
-          <p class="feature text">ACCOUNTING</p>
+          <img class="grid__col--8" src="./assets/svg/icon-accounting.svg" alt="accounting icon">
+          <p class="feature text" i18n="solution.accounting"></p>
         </div>
         <div class="feature grid flex--column grid__col--6 grid__col--md-2  p-top--50 m-right--40-lg">
-          <img class="grid__col--8" src="./assets/svg/icon-reporting.svg" alt="">
-          <p class="feature text">REPORTING</p>
+          <img class="grid__col--8" src="./assets/svg/icon-reporting.svg" alt="reporting icon">
+          <p class="feature text" i18n="solution.reporting"></p>
         </div>
         <div class="feature grid flex--column grid__col--6 grid__col--md-2  p-top--50 m-right--40-lg">
-          <img class="grid__col--8" src="./assets/svg/icon-modelling.svg" alt="">
-          <p class="feature text">MODELLING</p>
+          <img class="grid__col--8" src="./assets/svg/icon-modelling.svg" alt="modelling icon">
+          <p class="feature text" i18n="solution.modelling"></p>
         </div>
         <div class="feature grid flex--column grid__col--6 grid__col--md-2  p-top--50 m-right--40-lg">
-          <img class="grid__col--8" src="./assets/svg/icon-risk.svg" alt="">
-          <p class="feature text grid__col--6">RISK & COMPLIANCE</p>
+          <img class="grid__col--8" src="./assets/svg/icon-risk.svg" alt="risk icon">
+          <p class="feature text grid__col--8 grid__col--md-8" i18n="solution.risk&Compliance"></p>
         </div>
         <div class="feature grid flex--column grid__col--6 grid__col--md-2  p-top--50">
-          <img class="grid__col--8" src="./assets/svg/icon-security.svg" alt="">
-          <p class="feature text">SECURITY</p>
+          <img class="grid__col--8" src="./assets/svg/icon-credit-ESG.svg" alt="security icon">
+          <p class="feature text grid__col--8" i18n="solution.esgRatings"></p>
         </div>
       </div>
     </div>
@@ -339,19 +332,20 @@
       class="home-content__text  grid flex flex--column text-color--white text-align--left flex flex--column flex__justify--space-between">
       <div
         class="home-content__description grid__col--md-7 flex flex--column flex__align--center flex__justify--center p-x--30 p-right--80-xl p-left--0-xl">
-        <h2 class="heading heading--h2 m--0 p-top--70 p-bottom--30">
-          Ready to unleash the power of your asset data?
+        <h2 class="heading heading--h2 m--0 p-top--70 p-bottom--30 animated-box" i18n="shared.unleash">
+          
         </h2>
-        <p class="line-height--22 text text-body--1 p-bottom--50">
-          Let’s work together! Our team of experts is here to help you achieve
-          your goals and drive results.
+        <p class="line-height--22 text text-body--1 p-bottom--50 animated-box" i18n="shared.workTogether">
+
         </p>
       </div>
       <div
         class="home-content__image grid__col--md-5 position__relative flex flex__align--center flex__justify--center">
-        <img src="./assets/svg/footer-filter.svg" alt="" class="" />
-        <button class="button button-secondary text text-body--2 flex__align--center" type="button">
-          DOWNLOAD OUR WHITE PAPER
+        <img src="./assets/svg/footer-filter.svg" alt="footer image" class="" />
+        <button class="button button-secondary text text-body--2 flex__align--center" type="button" id="download-button" 
+          onclick=" window.open('https://celfocus.com/home/index.php/resources/financial-services-asset-management-white-paper', '_blank'); return false;"
+          i18n="shared.whitePaper"> 
+          
         </button>
       </div>
     </div>
@@ -359,31 +353,47 @@
   </section>
   <footer id="contacts" class="footer grid">
     <div class="footer--info grid__col--12 grid__col--md-5">
-      <a href="#" class="footer--info-brand">
+      <a href="https://celfocus.com/" target="_blank" class="footer--info-brand">
         <img src="./assets/images/celfocus-NB-logo.png" class="" alt="celfocus logo" />
       </a>
       <ul class="list">
-        <li><a href="#">Who we are</a></li>
-        <li><a href="#">Contact us</a></li>
+        <li><a href="https://celfocus.com/home/who-we-are" target="_blank" i18n="shared.whoWeAre">
+          
+        </a></li>
+        <li><a href="https://celfocus.com/home/who-we-are#contact-us" target="_blank" i18n="shared.contactUs">
+          
+        </a></li>
       </ul>
     </div>
     <div class="footer--social-links grid__col--12 grid__col--md-2">
       <ul>
-        <li><a href="#"><img src="./assets/svg/linkedin.svg" /></a></li>
-        <li><a href="#"><img src="./assets/svg/instagram.svg" /></a></li>
-        <li><a href="#"><img src="./assets/svg/facebook.svg" /></a></li>
+        <li>
+          <a href="https://www.linkedin.com/company/celfocus/mycompany/verification/" target="_blank">
+           <img src="./assets/svg/linkedin.svg" alt="linkedin logo"/>
+         </a>
+       </li>
+        <li>
+          <a href="https://www.instagram.com/celfocus/?igshid=xkkubbgfhed9" target="_blank">
+            <img src="./assets/svg/instagram.svg" alt="instagram logo" />
+          </a>
+        </li>
+        <li>
+          <a href="https://www.facebook.com/celfocus" target="_blank">
+            <img src="./assets/svg/facebook.svg" alt="facebook logo"/>
+          </a>
+        </li>
       </ul>
     </div>
     <div class="footer--copyright grid__col--12 grid__col--md-5">
       <p>
-        <span>&copy 2023 Celfocus. All rights reserved.</span>
-        <a class="footer-rights--link" href="" target="_blank">Privacy Notice</a>
+        <span i18n="shared.copyright"></span>
+        <a class="footer-rights--link" href="https://www.celfocus.com/home/privacy-notice" target="_blank" i18n="shared.privacyNotice"></a>
       </p>
     </div>
   </footer>
 
   <script type="text/javascript">
-    $('.slider-test').slick({
+    $('.slider').slick({
       infinite: true,
       autoplay: true,
       arrows: false,
@@ -392,40 +402,43 @@
       slidesToScroll: 1
     });
 
-    window.addEventListener('scroll', (e) => {
-      const nav = document.querySelector('.header');
-      if (window.pageYOffset > 0) {
-        nav.classList.add("box-shadow--bottom");
-      } else {
-        nav.classList.remove("box-shadow--bottom");
-      }
-    });
+    $(document).ready(function() {
+    var counterElements = $('.counter');
+    var duration = 2000; 
+    var interval = 10; 
 
-    $("button.header--menu").click(function () {
-      $('.header').toggleClass('header--active');
-    });
-
-    $(window).resize(function () {
-      if (($(window).width() <= 992)) {
-        $('.header').removeClass('header--active');
-      }
-    });
-
-    function languageDropdown() {
-      if (($(window).width() > 992)) {
-        $('.header--dropdown').toggleClass('open');
-        $('.button--language').addClass('active');
-      }
+    function startCounter(counterElement, targetValue) {
+      var currentValue = parseInt(counterElement.text());
+      var increment = Math.ceil(targetValue / (duration / interval));
+      var counter = setInterval(function() {
+        currentValue += increment;
+        if (currentValue >= targetValue) {
+          currentValue = targetValue;
+          clearInterval(counter);
+        }
+        counterElement.text(currentValue);
+      }, interval);
     }
 
-    $(document).mouseup(function (e) {
-      if (($(window).width() > 992)) {
-        var container = $(".button--language");
-        if (!container.is(e.target) && container.has(e.target).length === 0) {
-          $('.header--dropdown').removeClass('open');
-          $('.button--language').removeClass('active');
+    var options = {
+      rootMargin: '0px',
+      threshold: 0.5
+    };
+
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          var targetElement = $(entry.target);
+          var targetValue = parseInt(targetElement.data('target'));
+          startCounter(targetElement, targetValue);
+          observer.unobserve(entry.target);
         }
-      }
+      });
+    }, options);
+
+    counterElements.each(function() {
+      observer.observe(this);
     });
+  });
   </script>
 </body>

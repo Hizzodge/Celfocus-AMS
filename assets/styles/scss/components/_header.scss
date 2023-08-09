@@ -2,13 +2,14 @@
 
 .header {
   padding: $spacing-16 $spacing-30;
-  background-color: $color-white;
+  background-color: transparent;
   position: sticky;
   top: 0;
   z-index: 99;
 
   @include isMediaTabletLandscape {
     padding: $spacing-16 $spacing-40;
+    background-color: transparent;
   }
 
   &--brand {
@@ -33,6 +34,7 @@
 
     li {
       margin: 0 $spacing-18;
+      position: relative;
 
       a {
         font-size: $font-size-14;
@@ -42,7 +44,21 @@
         text-transform: uppercase;
         border-bottom: 1px solid transparent;
 
-        &:hover,
+        &::before {
+          content: "";
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          width: 0;
+          height: 1px;
+          background-color: $color-primary;
+          transition: width 0.25s ease-out;
+        }
+
+        &:hover::before {
+          width: 100%;
+        }
+
         &.active {
           border-bottom: 1px solid $color-primary;
         }
@@ -105,7 +121,7 @@
 
   &--dropdown {
     border-bottom: 1px solid #c8c9cb;
-    padding: $spacing-04 $spacing-30 $spacing-16 $spacing-60;
+    padding: $spacing-04 $spacing-30 $spacing-60 $spacing-60;
     margin: 0;
 
     li {
@@ -200,20 +216,35 @@
   }
 
   &--active {
-    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.3);
-    padding: $spacing-16 0;
+    padding: 0;
     position: fixed;
     top: 0px;
     left: 0;
     width: 100%;
 
+    &::before {
+      content: "";
+      background-color: $color-medium_20;
+      position: absolute;
+      top: 72px;
+      left: 0;
+      width: 100%;
+      height: calc(100vh - 72px);
+      z-index: 1;
+    }
+
     & + .home-intro,
-    & + .solution-intro {
+    a & + .solution-intro {
       margin-top: $spacing-72;
     }
 
     > section {
       flex-wrap: wrap;
+      background-color: $color-white;
+      padding-top: $spacing-16;
+      box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.3);
+      position: relative;
+      z-index: 9;
     }
 
     .header {
@@ -270,6 +301,7 @@
         .button {
           &--login {
             margin: $spacing-140 auto $spacing-60;
+            display: none;
           }
 
           &-tertiary {
@@ -280,4 +312,9 @@
       }
     }
   }
+}
+
+.box-shadow--bottom {
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1607843137);
+  background-color: #ffffff;
 }

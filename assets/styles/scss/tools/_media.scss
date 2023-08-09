@@ -1,5 +1,11 @@
 @use "../settings/breakpoints" as *;
 
+@mixin isMobile360($direction: max-width) {
+  @media all and ($direction: $breakpoint-mobile-360) {
+    @content;
+  }
+}
+
 @mixin isSuperMobile($direction: max-width) {
   @media all and ($direction: $breakpoint-super-mobile) {
     @content;

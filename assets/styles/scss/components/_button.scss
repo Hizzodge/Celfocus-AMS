@@ -21,6 +21,14 @@
     opacity: 0.82;
   }
 
+  &-secondary {
+    &:hover {
+      background-color: $color-white_12;
+    }
+    &:focus {
+      background-color: $color-white_18;
+    }
+  }
   &-primary {
     background: $color-primary;
   }
